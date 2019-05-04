@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  airline_code: MyString
+  flight_no: 1
+  dept_date: 2019-05-03
+  dept_time: 2019-05-03 17:39:20
+  arr_date: 2019-05-03
+  arr_time: 2019-05-03 17:39:20
+  type: 
+  references: 
+
+two:
+  airline_code: MyString
+  flight_no: 1
+  dept_date: 2019-05-03
+  dept_time: 2019-05-03 17:39:20
+  arr_date: 2019-05-03
+  arr_time: 2019-05-03 17:39:20
+  type: 
+  references: 
