@@ -1,0 +1,21 @@
+<%= form_with scope: :flight, url: flights_path, local: true do |form| %>
+
+  <p>
+    <%= form.label :airline_code %><br>
+    <%= form.text_field :airline_code %>
+  </p>
+
+  <p>
+    <%= form.label :flight_no %><br>
+    <%= form.text_field :flight_no %>
+  </p>
+
+  <p>
+    <%= form.label :dept_date %><br>
+    <%= form.text_field :dept_date %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

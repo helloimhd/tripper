@@ -1,0 +1,9 @@
+<%= form_with scope: :expense, url: expenses_path, local: true do |form| %>
+
+  <%= form.collection_select :trip_id, @trips, :id, :name %>
+
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
