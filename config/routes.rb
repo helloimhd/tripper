@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   root 'main#index'
 
+
   get '/trips/:id/expenses' => 'expenses#index', as: 'expenses'
   get '/trips/:id/expenses/new' => 'expenses#new', as: 'new_expense'
   post '/trips/:id/expenses' => 'expenses#create'
@@ -14,5 +15,11 @@ Rails.application.routes.draw do
    get '/trips/:id/expenses/:id/edit' => 'expenses#edit', as: 'edit_expense'
   patch '/trips/:id/expenses/:id' => 'expenses#update'
   delete '/trips/:id/expenses/:id' => 'expenses#destroy'
+  
+  
+  get 'trips/:id/flights/new' => 'flights#new', as: 'new_flight'
+  post '/flights' => 'flights#create'
+
+  get '/flights/:id' => 'flights#show' , as: 'flight'
 
 end
