@@ -1,19 +1,30 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 
 
 <%= form_with scope: :todo, url: todo_path, local: true do |form| %>
+
+<div class="form-group">
   <%= form.label :trip %><br />
   <%= form.collection_select :trip_id, @trips, :id, :name %>
+</div>
+<div class="form-group">
    <%= form.label :date %><br />
-  <%= form.date_select :remainderDate, {:order => [:month, :day, :year],:prompt => true, :start_year => Time.now.year, :end_year => 2019} %>
+  <%= form.date_select :date, {:order => [:month, :day, :year],:prompt => true, :start_year => Time.now.year, :end_year => 2019} %>
+</div>
+<div class="form-group">
   <%= form.label :category %><br />
     <%= form.collection_select :category_id, @categories, :id, :name %>
-  <p>
+  </div>
+  <div class="form-group">
     <%= form.label :details%><br>
     <%= form.text_field :details %>
-  </p>
+  </div>
 
   <p>
     <%= form.submit %>
   </p>
+
+
 <% end %>
+

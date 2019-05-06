@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 
-<% @todos.each do |todo|%>
+
 	
 	<table class="table">
   <thead>
@@ -10,18 +10,25 @@
       <th scope="col">Date</th>
       <th scope="col">Category</th>
       <th scope="col">Plan</th>
-      <th scope="col">Completed</th>
+      <th scope="col">Edit</th>
       <th scope="col">Delete</th>
+      <th scope="col">Completed</th>
     </tr>
   </thead>
   <tbody>
+    <% @todos.each_with_index do |todo, index|%>
     <tr>
       <th scope="row"><%= todo.date %></th>
-      <td><%= todo.category_id %></td>
+      <td><%= todo.category.name %></td>
       <td><%= todo.details%></td>
+      <td><%= link_to 'Edit', edit_todo_path(todo) %></td>
+      <td><%= link_to 'Destroy', todo_path(todo),
+              method: :delete,
+              data: { confirm: 'Are you sure you want to delete the event?' } %>
+      <td><%= check_box_tag "done#{index}", todo.category.name, todo.done %></td>
 
     </tr>
+      <% end %>
 
   </tbody>
 </table>
-	<% end %>
