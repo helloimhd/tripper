@@ -1,13 +1,8 @@
-<h2>Edit Expense</h2>
-
+<h1><%= @expense.trip.name %></strong></h1>
+<br>
+<h2>Edit</h2>
 <%= form_with scope: :expense, local: true do |form| %>
 <br>
-
-	<h1>
-		<strong><%= @expense.trip.name %></strong><br>
-
-  </h1>
-
   <p>
     <%= form.label :details, 'Exp Details' %><br>
     	<%= form.text_field :details %>
