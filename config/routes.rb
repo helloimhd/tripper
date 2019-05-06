@@ -6,8 +6,8 @@ Rails.application.routes.draw do
 
   root 'main#index'
 
-  get '/flights/new' => 'flights#new', as: 'new_flight'
-  post '/flights' => 'roasts#create'
+  get 'trips/:id/flights/new' => 'flights#new', as: 'new_flight'
+  post '/flights' => 'flights#create'
 
   get '/flights/:id' => 'flights#show' , as: 'flight'
 

@@ -1,27 +1,88 @@
 <h1>New Flight</h1>
 
-<%= form_with scope: :flight, url: flights_path, local: true do |form| %>
+<div class="container">
 
+	<%= form_with scope: :flight, url: flights_path, local: true do |form| %>
 
-<select>
-<%= @responses.each do |response| %>
-	<option><%= response.name %></option>
-<% end %>
-</select>
-	<p>
-		<%= form.label :title %><br>
-		<%= form.text_field :title %>
-	</p>
+	<div class="form-row">
+		<div class="col">
+			<label>Airline</label>
+			<select class="form-control form-control-lg" name="flight[airline_code]">
+				<%= @responses.each do |response| %>
+					<option value=<%= response["id"] %>><%= response["name"] %></option>
+				<% end %>
+			</select>
+		</div>
 
-	<p>
-    <%= form.label :text %><br>
-    <%= form.text_area :text %>
-  </p>
+		<div class="col">
+			<label>Flight Number</label>
+			<%= form.text_field :flight_no, class: "form-control form-control-lg" %>
+		</div>
 
-  <p>
-    <%= form.submit %>
-  </p>
+		<div class="col">
+			<label>Type</label>
+			<select class="form-control form-control-lg" name="flight[flight_type]">
+				<option value="outbound">Outbound</option>
+				<option value="inbound">Inbound</option>
+			</select>
+		</div>
+	</div>
 
+	<br />
+
+	<div class="form-row">
+		<div class="col">
+			<label>From</label>
+			<select class="form-control form-control-lg" name="flight[from]">
+				<%= @airports.each do |airport| %>
+					<option value="<%= airport.iata %>"><%= airport.name %></option>
+				<% end %>
+			</select>
+		</div>
+
+		<div class="col">
+			<label>To</label>
+			<select class="form-control form-control-lg" name="flight[to]">
+				<%= @airports.each do |airport| %>
+					<option value="<%= airport.iata %>"><%= airport.name %></option>
+				<% end %>
+			</select>
+		</div>
+	</div>
+
+	<br />
+
+	<div class="form-row">
+		<div class="col">
+			<label>Departure Date</label>
+			<%= form.date_field :dept_date, min: Date.today, class: "form-control form-control-lg" %>
+		</div>
+
+		<div class="col">
+			<label>Departure Time</label>
+			<%= form.time_field :dept_time, class: "form-control form-control-lg" %>
+		</div>
+	</div>
+
+	<br />
+
+	<div class="form-row">
+		<div class="col">
+			<label>Arrival Date</label>
+			<%= form.date_field :arr_date, min: Date.today, class: "form-control form-control-lg" %>
+		</div>
+
+		<div class="col">
+			<label>Arrival Time</label>
+			<%= form.time_field :arr_time, class: "form-control form-control-lg" %>
+		</div>
+	</div>
+
+	<br />
+
+	<button type="submit" class="btn btn-outline-success btn-lg">Confirm</button>
 
 	<%= link_to 'Back', root_path %>
-<% end %>
+	<% end %>
+
+</div>

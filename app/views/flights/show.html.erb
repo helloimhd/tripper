@@ -1,0 +1,51 @@
+<p>
+  <strong>Airline</strong>
+  <%= @flight.airline_code %>
+</p>
+
+<p>
+  <strong>Flight Number</strong>
+  <%= @flight.flight_no %>
+</p>
+
+<p>
+  <strong>Type</strong>
+  <%= @flight.flight_type %>
+</p>
+
+<p>
+  <strong>From</strong>
+  <%= @flight.from %>
+</p>
+
+<p>
+  <strong>To</strong>
+  <%= @flight.to %>
+</p>
+
+<p>
+  <strong>Departure Date</strong>
+  <%= @flight.dept_date %>
+</p>
+
+<p>
+  <strong>Departure Time</strong>
+  <%= @flight.dept_time %>
+</p>
+
+<p>
+  <strong>Arrival Date</strong>
+  <%= @flight.arr_date %>
+</p>
+
+<p>
+  <strong>Arrival Time</strong>
+  <%= @flight.arr_time %>
+</p>
+
+<p>
+	<strong>Trip</strong>
+  <%= @flight.trip_id.name %>
+ <p>
+<%= link_to 'Edit', edit_article_path(@article) %>
+<%= link_to 'Back', root_path %>
