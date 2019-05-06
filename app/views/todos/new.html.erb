@@ -1,0 +1,19 @@
+
+
+
+<%= form_with scope: :todo, url: todo_path, local: true do |form| %>
+  <%= form.label :trip %><br />
+  <%= form.collection_select :trip_id, @trips, :id, :name %>
+   <%= form.label :date %><br />
+  <%= form.date_select :remainderDate, {:order => [:month, :day, :year],:prompt => true, :start_year => Time.now.year, :end_year => 2019} %>
+  <%= form.label :category %><br />
+    <%= form.collection_select :category_id, @categories, :id, :name %>
+  <p>
+    <%= form.label :details%><br>
+    <%= form.text_field :details %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
