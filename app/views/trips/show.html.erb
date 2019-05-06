@@ -1,38 +1,44 @@
 <p id="notice"><%= notice %></p>
 
+
 <div class="container">
 	<h1><%= @trip.name %></h1>
 	<div class="row">
-		<div class="col">
-			<input class="form-control form-control-lg" value="<%= @trip.start_date %>" disabled />
+		<div class="col-5">
+			<input class="form-control form-control-lg" value="<%= @trip.start_date.strftime("%d %B %Y") %>" disabled />
 		</div>
 
-		<div class="col">
+		<div class="col-2">
+			<p id="to">to</p>
+		</div>
+
+		<div class="col-5">
+			<input class="form-control form-control-lg" value="<%= @trip.end_date.strftime("%d %B %Y") %>" disabled />
+		</div>
+
+
+		<div class="optionMain-container">
+			<div class="option-container">
+				<div class="optionText">
+					<%= link_to 'Flight', "#" %>
+				</div>
+			</div>
+
+			<div class="option-container">
+				<div class="optionText">
+					<%= link_to 'To Do', "#" %>
+				</div>
+			</div>
+
+			<div class="option-container">
+				<div class="optionText">
+					<%= link_to 'Expenses', "#" %>
+				</div>
+			</div>
 		</div>
 	</div>
 
 
-
-
-
-
-
-
-</div>
-<p>
-  <strong>Start date:</strong>
-
-</p>
-
-<p>
-  <strong>End date:</strong>
-  <%= @trip.end_date %>
-</p>
-
-
-<%= link_to 'Add Flight', "#" %><br>
-<%= link_to 'To Do List', "#" %><br>
-<%= link_to 'Expenses', "#" %><br>
 
 <br>
 

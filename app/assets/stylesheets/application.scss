@@ -13,9 +13,14 @@
  */
 
  @import "bootstrap";
+ @import "trips";
 
  h1 {
  	font-family: 'Pacifico', cursive;
  	font-size: 70px;
+ 	text-align: center;
+ }
+
+ #to {
  	text-align: center;
  }

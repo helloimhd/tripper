@@ -6,6 +6,8 @@ require 'airports'
 class FlightsController < ApplicationController
 
   def index
+    @trip = Trip.find(params[:trip_id])
+    @flights = Flight.all.where(trip_id: @trip)
   end
 
   def show
