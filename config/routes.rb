@@ -8,6 +8,15 @@ Rails.application.routes.draw do
   root 'main#index'
 
 
+  get '/todos' => 'todos#index', as: 'todo'
+  post 'todos' => 'todos#create'
+  get '/todos/new' => 'todos#new', as: 'new_todo'
+  get '/todos/:id' => 'todos#show'
+  get '/todos/:id/edit' => 'todos#edit', as: 'edit_todo'
+  patch '/todos/:id' => 'todos#update'
+  delete '/todos/:id' => 'todos#destroy'
+
+  
   get '/trips/:id/expenses' => 'expenses#index', as: 'expenses'
   get '/trips/:id/expenses/new' => 'expenses#new', as: 'new_expense'
   post '/trips/:id/expenses' => 'expenses#create'
@@ -21,5 +30,6 @@ Rails.application.routes.draw do
   post '/flights' => 'flights#create'
 
   get '/flights/:id' => 'flights#show' , as: 'flight'
+
 
 end
