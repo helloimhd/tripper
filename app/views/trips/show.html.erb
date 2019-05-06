@@ -1,13 +1,27 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @trip.name %>
-</p>
+<div class="container">
+	<h1><%= @trip.name %></h1>
+	<div class="row">
+		<div class="col">
+			<input class="form-control form-control-lg" value="<%= @trip.start_date %>" disabled />
+		</div>
 
+		<div class="col">
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+</div>
 <p>
   <strong>Start date:</strong>
-  <%= @trip.start_date %>
+
 </p>
 
 <p>
