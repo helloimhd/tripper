@@ -1,4 +1,3 @@
-
 <h1>Add new Expense</h1>
 
 <%= form_with scope: :expense, url: expenses_path, local: true do |form| %>
@@ -14,7 +13,7 @@
   </p>
 
   <p>
-    <%= form.label :amount, "$'s" %><br>
+    <%= form.label :amount, "Amount($)" %><br>
     	<%= form.number_field :amount %>
   </p>
 

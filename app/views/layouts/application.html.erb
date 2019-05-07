@@ -7,11 +7,14 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag "http://www.google.com/jsapi", "chartkick" %>
 
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
   </head>
 
   <body>
+  	<div class="container">
     <%= yield %>
+  </div>
   </body>
 </html>
