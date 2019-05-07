@@ -1,0 +1,40 @@
+<h1>Flights</h1>
+
+<div class="container">
+	<%= @flights.each do |flight| %>
+		<div class="flightDetails-container">
+			<div class="row">
+				<div class="col-3">
+					<%= flight.airline_code %>
+				</div>
+
+				<div class="col-3">
+					<%= flight.flight_no %>
+				</div>
+			</div>
+
+			<h2>Departure</h2>
+			<div class="row">
+				<div class="col-3">
+					<%= flight.dept_date %>
+				</div>
+
+				<div class="col-3">
+					<%= flight.dept_time %>
+				</div>
+			</div>
+
+			<h2>Arrival</h2>
+			<div class="row">
+				<div class="col-3">
+					<%= flight.arr_date %>
+				</div>
+
+				<div class="col-3">
+					<%= flight.arr_time %>
+				</div>
+			</div>
+		</div>
+	<% end %>
+
+</div>

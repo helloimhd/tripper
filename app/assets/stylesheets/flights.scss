@@ -1,3 +1,36 @@
 // Place all the styles related to the Flights controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+div {
+// border: 1px solid red;
+}
+
+.destination-container {
+	display: flex;
+	flex-direction: row;
+
+	h2, img {
+		margin-right: 20px;
+	}
+}
+
+.airline-container h4 {
+	margin-left: 15px;
+}
+
+.details-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	border: 3px solid #CCE3DE;
+	border-radius: 20px;
+}
+
+.departure-container {
+	margin-bottom: 20px;
+}
+
+.date-container, .time-container {
+	margin: 20px;
+}
