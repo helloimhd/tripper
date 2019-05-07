@@ -4,6 +4,10 @@
 
 	<%= form_with scope: :flight, url: flights_path, local: true do |form| %>
 
+	<input type="hidden" value="<%= @trip.id %>" name="flight[trip_id]"></input>
+
+
+
 	<div class="form-row">
 		<div class="col">
 			<label>Airline</label>

@@ -3,5 +3,5 @@ class Trip < ApplicationRecord
 
   has_many :flight
   has_many :to_do
-  has_many :expenses
+  has_many :expense
 end
