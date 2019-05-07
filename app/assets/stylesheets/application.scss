@@ -13,9 +13,28 @@
  */
 
  @import "bootstrap";
+ @import "trips";
+
+ // body {
+ // 	background-image: url("main-background.jpg");
+ // 	background-position: center;
+ //  background-repeat: no-repeat;
+ //  background-size: cover;
+ //  position: relative;
+ // }
 
  h1 {
  	font-family: 'Pacifico', cursive;
  	font-size: 70px;
  	text-align: center;
  }
+
+ #to {
+ 	text-align: center;
+ }
+
+ @media only screen and (max-width: 600px) {
+  h1 {
+    // color: blue;
+  }
+}
