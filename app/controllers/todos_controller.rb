@@ -3,10 +3,13 @@ class TodosController < ApplicationController
 
 	def index
 	    @todos = ToDo.all
+	    @categories =Category.all
+    	
 	  end
 
 	def show
 		@todo = ToDo.find(params[:id])
+		@categories = Category.all
 	end
 
 	def new
@@ -14,6 +17,13 @@ class TodosController < ApplicationController
 		@trips = Trip.all
 		@categories = Category.all
 	end
+
+
+	def edit
+	    @todo = ToDo.find(params[:id])
+	    @categories = Category.all
+	    @trips = Trip.all
+	 end
 
 	def create
 		@todo = ToDo.new(todo_params)
@@ -28,7 +38,7 @@ class TodosController < ApplicationController
 	def update
 		@todo = ToDo.find(params[:id])
 	    @todo.update(post_params)
-	    redirect_to todo_url
+	    redirect_to @todo_url
 
   	end
 
@@ -36,7 +46,7 @@ class TodosController < ApplicationController
 	    @todo = ToDo.find(params[:id])
 
 	    @todo.destroy
-	    redirect_to todos_url
+	    redirect_to todo_url
     end
 
   private
