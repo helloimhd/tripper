@@ -1,10 +1,10 @@
 class TodosController < ApplicationController
-	
+
 
 	def index
 	    @todos = ToDo.all
 	    @categories =Category.all
-    	
+
 	  end
 
 	def show
@@ -15,6 +15,7 @@ class TodosController < ApplicationController
 	def new
 		@todo = ToDo.new
 		@trips = Trip.all
+    @trip = Trip.find(params[:trip_id])
 		@categories = Category.all
 	end
 
