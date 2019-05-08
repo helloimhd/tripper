@@ -14,9 +14,20 @@
 
 	<div class="jumbotron jumbotron-fluid">
 	  <div class="container">
-	    <h1 class="display-4"><%= link_to trip.name, trip %></h1>
 
-	    <p class="lead">Days Left: <%= days_left = (trip.start_date - Date.today).to_i %></p>
+			<h1 class="display-4"><%= link_to trip.name, trip %></h1>
+			<div class="days-container">
+	  		<p class="lead">Days Left: <%= days_left = (trip.start_date - Date.today).to_i %></p>
+			</div>
+
+	  </div>
+
+	  <div class="edit-container">
+	  	<%= link_to image_tag("icons/writing.png", class: "icons"), edit_trip_path(trip) %>
+	  </div>
+
+	  <div class="delete-container">
+	  	<%= link_to image_tag("icons/delete.png", class: "icons"), trip, method: :delete, data: { confirm: 'Are you sure?' } %>
 	  </div>
 	</div>
 
