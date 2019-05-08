@@ -50,7 +50,7 @@
 	<div class="form-row">
 		<div class="col-7 col-lg-6">
 			<label>Departure Date</label>
-			<%= form.date_field :dept_date, min: Date.today, class: "form-control form-control-lg" %>
+			<%= form.date_field :dept_date, min: @trip.start_date, max: @trip.end_date, class: "form-control form-control-lg" %>
 		</div>
 
 		<div class="col-5 col-lg-6">
@@ -64,7 +64,7 @@
 	<div class="form-row">
 		<div class="col-7 col-lg-6">
 			<label>Arrival Date</label>
-			<%= form.date_field :arr_date, min: Date.today, class: "form-control form-control-lg" %>
+			<%= form.date_field :arr_date, min: @trip.start_date, max: @trip.end_date, class: "form-control form-control-lg" %>
 		</div>
 
 		<div class="col-5 col-lg-6">

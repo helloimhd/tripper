@@ -33,14 +33,14 @@ class FlightsController < ApplicationController
     @flight = Flight.new(flight_params)
 
     @flight.save
-    redirect_to @flight
+    redirect_to "/trips/#{@flight.trip_id}/flights"
   end
 
   def destroy
   @flight = Flight.find(params[:id])
   @flight.destroy
 
-  redirect_to root_path
+  redirect_to "/trips/#{@flight.trip_id}/flights"
   end
 
 

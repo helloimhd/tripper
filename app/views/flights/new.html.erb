@@ -9,7 +9,7 @@
 
 
 	<div class="form-row">
-		<div class="col">
+		<div class="col-8 col-lg-6">
 			<label>Airline</label>
 			<select class="form-control form-control-lg" name="flight[airline_code]">
 				<%= @responses.each do |response| %>
@@ -18,7 +18,7 @@
 			</select>
 		</div>
 
-		<div class="col">
+		<div class="col-4 col-lg-6">
 			<label>Flight Number</label>
 			<%= form.text_field :flight_no, class: "form-control form-control-lg" %>
 		</div>
@@ -27,7 +27,7 @@
 	<br />
 
 	<div class="form-row">
-		<div class="col-sm-12 col-lg-6">
+		<div class="col-12 col-lg-6">
 			<label>From</label>
 			<select class="form-control form-control-lg" name="flight[from]">
 				<%= @airports.each do |airport| %>
@@ -36,7 +36,7 @@
 			</select>
 		</div>
 
-		<div class="col-sm-12 col-lg-6">
+		<div class="col-12 col-lg-6">
 			<label>To</label>
 			<select class="form-control form-control-lg" name="flight[to]">
 				<%= @airports.each do |airport| %>
@@ -49,12 +49,12 @@
 	<br />
 
 	<div class="form-row">
-		<div class="col">
+		<div class="col-7 col-lg-6">
 			<label>Departure Date</label>
-			<%= form.date_field :dept_date, min: Date.today, class: "form-control form-control-lg" %>
+			<%= form.date_field :dept_date, min: @trip.start_date, max: @trip.end_date, class: "form-control form-control-lg" %>
 		</div>
 
-		<div class="col">
+		<div class="col-5 col-lg-6">
 			<label>Departure Time</label>
 			<%= form.time_field :dept_time, class: "form-control form-control-lg" %>
 		</div>
@@ -63,12 +63,12 @@
 	<br />
 
 	<div class="form-row">
-		<div class="col">
+		<div class="col-7 col-lg-6">
 			<label>Arrival Date</label>
-			<%= form.date_field :arr_date, min: Date.today, class: "form-control form-control-lg" %>
+			<%= form.date_field :arr_date, min: @trip.start_date, max: @trip.end_date, class: "form-control form-control-lg" %>
 		</div>
 
-		<div class="col">
+		<div class="col-5 col-lg-6">
 			<label>Arrival Time</label>
 			<%= form.time_field :arr_time, class: "form-control form-control-lg" %>
 		</div>
