@@ -34,7 +34,8 @@ class ExpensesController < ApplicationController
   def new
     @expense = Expense.new
     @expense.spent = false
-    @trips = Trip.all
+    #@trips = Trip.all
+    @trip = Trip.find(params[:trip_id])
     @categories = Category.all
   end
 

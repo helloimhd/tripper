@@ -1,35 +1,54 @@
+<h1>Edit Expense</h1>
+
 <div class="container">
-<h1><%= @expense.trip.name %></strong></h1>
-<br>
-<h2>Edit</h2>
 <%= form_with scope: :expense, local: true do |form| %>
-<br>
-  <p>
-    <%= form.label :details, 'Exp Details' %><br>
-    	<%= form.text_field :details %>
-  </p>
 
-  <p>
-    <%= form.label :amount, "$'s" %><br>
-    	<%= form.number_field :amount %>
-  </p>
+	<input type="hidden" value="<%= @trip.id %>" name="expense[trip_id]"></input>
 
-	<p>
-	<%= form.label :category_id, 'Category' %><br>
-    <%= form.collection_select :category_id, @categories, :id, :name, include_blank: true %>
-  </p>
+	<div class="form-row">
+		<div class="col-9 col-lg-6">
+			<label>Trip</label>
+			<input class="form-control form-control-lg" value="<%= @trip.name %>" disabled/>
+		</div>
+	</div>
 
-  <p>
-    <%= form.label :spent, 'Paid' %>
-    <%= form.check_box :spent %>
-  </p>
+	<br />
 
-  <p>
-    <%= form.submit %>
-  </p>
+	<div class="form-row">
+		<div class="col-9 col-lg-6">
+			<label>Expenses Details</label>
+			<%= form.text_field :details, class: "form-control form-control-lg" %>
+		</div>
 
+		<div class="col-3 col-lg-6">
+			<label>Amount</label>
+			<%= form.number_field :amount, class: "form-control form-control-lg" %>
+		</div>
+	</div>
+
+	<br />
+
+	<div class="form-row">
+		<div class="col-9 col-lg-6">
+			<label>Category</label>
+			<%= form.collection_select :category_id, @categories, :id, :name,{prompt: "Select category"}, {class: "form-control form-control-lg"} %>
+		</div>
+
+		<div class="form-group form-check" id="paidCheck">
+			<div class="col-3 col-lg-6">
+				 <%= form.check_box :spent, class: "form-check-input" %>
+				 <label>Paid</label>
+			</div>
+		</div>
+	</div>
+
+	<br />
+
+	<button type="submit" class="buttons">Confirm</button>
 <% end %>
 
-<br/>
-<%= link_to 'Back', expense_url, class: 'btn btn-primary' %>
+	<br />
+	<footer>
+			<%= link_to image_tag("icons/back.png", class: "icons-trips"), expenses_path %>
+		</footer>
 </div>

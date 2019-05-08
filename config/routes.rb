@@ -36,5 +36,7 @@ Rails.application.routes.draw do
   get 'trips/:trip_id/flights/:id/edit' => 'flights#edit' , as: 'edit_flight'
   patch '/trips/:trip_id/flights/:id' => 'flights#update'
 
+  delete '/trips/:trip_id/flights/:id' => 'flights#destroy'
+
 
 end
