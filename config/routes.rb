@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   root 'main#index'
 
 ###############   TO DO   ###################
-  get '/trips/:trip_id/todos' => 'todos#index', as: 'todo'
+  get '/trips/:trip_id/todos' => 'todos#index', as: 'todos'
   get '/trips/:trip_id/todos/new' => 'todos#new', as: 'new_todo'
   post '/trips/:trip_id/todos' => 'todos#create'
   get '/trips/:trip_id/todos/:id' => 'todos#show', as: 'show_todo'

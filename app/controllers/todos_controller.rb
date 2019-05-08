@@ -4,6 +4,7 @@ class TodosController < ApplicationController
 	def index
 	    @todos = ToDo.all
 	    @categories =Category.all
+      @trip = Trip.find(params[:trip_id])
 
 	  end
 
@@ -24,13 +25,14 @@ class TodosController < ApplicationController
 	    @todo = ToDo.find(params[:id])
 	    @categories = Category.all
 	    @trips = Trip.all
+      @trip = Trip.find(params[:trip_id])
 	 end
 
 	def create
 		@todo = ToDo.new(todo_params)
 
 	    if @todo.save
-	    	redirect_to todo_path
+	    	redirect_to todos_path
 	    else
 	    	puts "failed"
 	    end
@@ -47,7 +49,7 @@ class TodosController < ApplicationController
 	    @todo = ToDo.find(params[:id])
 
 	    @todo.destroy
-	    redirect_to todo_url
+	    redirect_to todos_path
     end
 
   private

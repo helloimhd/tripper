@@ -1,0 +1,26 @@
+<%= form_with scope: :todo, url: todo_path, local: true do |form| %>
+<div class = "container">
+
+<div class="form-group">
+  <%= form.label :trip %><br />
+  <%= form.collection_select :trip_id, @trips, :id, :name %>
+</div>
+<div class="form-group">
+   <%= form.label :date %><br />
+  <%= form.date_select :date, {:order => [:month, :day, :year],:prompt => true, :start_year => Time.now.year, :end_year => 2019} %>
+</div>
+<div class="form-group">
+  <%= form.label :category %><br />
+    <%= form.collection_select :category_id, @categories, :id, :name %>
+  </div>
+  <div class="form-group">
+    <%= form.label :details%><br>
+    <%= form.text_field :details %>
+  </div>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+</div>
+<% end %>

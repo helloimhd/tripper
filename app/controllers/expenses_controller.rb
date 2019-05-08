@@ -56,6 +56,8 @@ class ExpensesController < ApplicationController
   end
 
   def update
+    @expense = Expense.find(params[:id])
+
     @expense.update(expense_params)
     redirect_to @expense
   end

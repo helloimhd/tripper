@@ -1,7 +1,7 @@
 <h1>Edit Expense</h1>
 
 <div class="container">
-<%= form_with scope: :expense, local: true do |form| %>
+<%= form_with scope: :expense, model: @expense, local: true do |form| %>
 
 	<input type="hidden" value="<%= @trip.id %>" name="expense[trip_id]"></input>
 
