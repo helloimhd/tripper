@@ -26,7 +26,7 @@
 
 .option-container {
 	padding: 20px;
-	border: 3px solid #D5B0AC;
+	border: 3px solid #CEA0AE;
 	width: 125px;
 	height: 125px;
 	border-radius: 50%;
@@ -69,9 +69,14 @@
 	flex-direction: row;
 	justify-content: space-between;
 
+	.tripDuration-container {
+		width: 49%;
+	}
+
 	.tripDate-container {
 		display: flex;
 		flex-direction: row;
+		justify-content: space-between;
 		padding: 10px;
 	}
 
@@ -79,7 +84,11 @@
 		display: flex;
 		flex-direction: column;
 		padding-right: 10px;
-		margin-right: 15px;
+		max-width: 66%;
+
+		h4 {
+			font-size: 20px;
+		}
 	}
 
 	.number-container {
@@ -88,16 +97,17 @@
 
 		h2 {
 			background-color: white;
+			font-size: 50px;
 		}
 	}
 }
 
 .tripDuration-container {
-	border: 2px solid #D5B0AC;
+	border: 2px solid #CEA0AE;
 	border-radius: 20px;
 
 	h2 {
-		background-color: #D5B0AC;
+		background-color: #CEA0AE;
 		text-align: center;
 		padding: 5px 0 5px;
 		border-radius: 17px 17px 0 0;

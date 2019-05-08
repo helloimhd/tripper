@@ -40,7 +40,7 @@
 		<div class="optionMain-container">
 			<div class="option-container">
 				<div class="optionText">
-					<%= link_to image_tag("icons/plane.png", class: "icons-trips"), "flights" %>
+					<%= link_to image_tag("icons/plane.png", class: "icons-trips"), "/trips/#{@trip.id}/flights" %>
 				</div>
 			</div>
 
@@ -52,7 +52,7 @@
 
 			<div class="option-container">
 				<div class="optionText">
-					<%= link_to image_tag("icons/expensive.png", class: "icons-trips"), "expenses" %>
+					<%= link_to image_tag("icons/expensive.png", class: "icons-trips"), "/trips/#{@trip.id}/expenses" %>
 				</div>
 			</div>
 		</div>
