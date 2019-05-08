@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get '/todos/:id' => 'todos#show'
   get '/todos/:id/edit' => 'todos#edit', as: 'edit_todo'
   patch '/todos/:id' => 'todos#update'
-  delete '/todos/:id' => 'todos#destroy'
+  delete '/todos/:id' => 'todos#destroy', as: 'destroy_todo'
 
 
 #################   TRIPS   #######################

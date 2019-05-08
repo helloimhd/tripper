@@ -20,9 +20,7 @@
       <td><%= todo.category.name %></td>
       <td><%= todo.details%></td>
       <td><%= link_to 'Edit', edit_todo_path(todo) %></td>
-      <td><%= link_to 'Destroy', todo_path(todo),
-              method: :delete,
-              data: { confirm: 'Are you sure you want to delete the event?' } %>
+      <td><%= link_to 'Destroy', destroy_todo_path(todo), method: :delete, data: { confirm: 'Are you sure?' } %>
       <td><%= check_box_tag "done#{index}", todo.category.name, todo.done %></td>
 
     </tr>

@@ -1,8 +1,7 @@
 
-<div class=“container”>
-<form class="text-center border border-light p-5">
-<%= form_with scope: :todo, url: todo_path, local: true do |form| %>
 
+<%= form_with scope: :todo, url: todo_path, local: true do |form| %>
+<div class = "container">
 
 <div class="form-group">
   <%= form.label :trip %><br />
@@ -25,7 +24,5 @@
     <%= form.submit %>
   </p>
 
-
-<% end %>
-</form>
 </div>
+<% end %>
