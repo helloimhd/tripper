@@ -36,7 +36,7 @@
 	<br />
 
 	<div class="form-row">
-		<div class="col">
+		<div class="col-sm-12 col-lg-6">
 			<label>From</label>
 			<select class="form-control form-control-lg" name="flight[from]">
 				<%= @airports.each do |airport| %>
@@ -45,7 +45,7 @@
 			</select>
 		</div>
 
-		<div class="col">
+		<div class="col-sm-12 col-lg-6">
 			<label>To</label>
 			<select class="form-control form-control-lg" name="flight[to]">
 				<%= @airports.each do |airport| %>
@@ -85,9 +85,12 @@
 
 	<br />
 
-	<button type="submit" class="btn btn-outline-success btn-lg">Confirm</button>
-
-	<%= link_to 'Back', root_path %>
+	<button type="submit" class="buttons">Confirm</button>
 	<% end %>
+
+	<br />
+	<footer>
+		<%= link_to image_tag("icons/back.png", class: "icons-trips"), flights_path %>
+	</footer>
 
 </div>
