@@ -17,10 +17,14 @@ $(document).ready ->
   jQuery(".best_in_place").best_in_place()
 
 //= require activestorage
-//= require popper
-//= require bootstrap
 //= require_tree .
 
-
+//= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+
+//= require Chart.bundle
+//= require chartkick
+
+console.log("test")
+

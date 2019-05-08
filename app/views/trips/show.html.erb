@@ -1,46 +1,63 @@
 <p id="notice"><%= notice %></p>
 
-
 <div class="container">
 	<h1><%= @trip.name %></h1>
-	<div class="row">
-		<div class="col-5">
-			<input class="form-control form-control-lg" value="<%= @trip.start_date.strftime("%d %B %Y") %>" disabled />
+
+	<div class="tripDetails-container">
+
+		<div class="tripDuration-container">
+			<h2>Start</h2>
+			<div class="tripDate-container">
+				<div class="dayMonth-container">
+					<h4><%= @trip.start_date.strftime("%A") %><h4>
+					<h4><%= @trip.start_date.strftime("%B") %></h4>
+				</div>
+
+				<div class="number-container">
+					<h2><%= @trip.start_date.strftime("%d") %></h2>
+				</div>
+			</div>
 		</div>
 
-		<div class="col-2">
-			<p id="to">to</p>
+		<div class="tripDuration-container">
+			<h2>End</h2>
+			<div class="tripDate-container">
+				<div class="dayMonth-container">
+					<h4><%= @trip.end_date.strftime("%A") %></h4>
+					<h4><%= @trip.end_date.strftime("%B") %></h4>
+				</div>
+
+				<div class="number-container">
+					<h2><%= @trip.end_date.strftime("%d") %><h2>
+				</div>
+			</div>
 		</div>
 
-		<div class="col-5">
-			<input class="form-control form-control-lg" value="<%= @trip.end_date.strftime("%d %B %Y") %>" disabled />
-		</div>
+	</div>
+
 
 
 		<div class="optionMain-container">
 			<div class="option-container">
 				<div class="optionText">
-					<%= link_to 'Flight', "#" %>
+					<%= link_to image_tag("icons/plane.png", class: "icons-trips"), "/trips/#{@trip.id}/flights" %>
 				</div>
 			</div>
 
 			<div class="option-container">
 				<div class="optionText">
-					<%= link_to 'To Do', "#" %>
+					<%= link_to image_tag("icons/to-do-list.png", class: "icons-trips"), "#" %>
 				</div>
 			</div>
 
 			<div class="option-container">
 				<div class="optionText">
-					<%= link_to 'Expenses', "#" %>
+					<%= link_to image_tag("icons/expensive.png", class: "icons-trips"), "/trips/#{@trip.id}/expenses" %>
 				</div>
 			</div>
 		</div>
+
+		<footer>
+			<%= link_to image_tag("icons/back.png", class: "icons-trips"), trips_path %>
+		</footer>
 	</div>
-
-
-
-<br>
-
-<%= link_to 'Edit', edit_trip_path(@trip) %> |
-<%= link_to 'Back', trips_path %>

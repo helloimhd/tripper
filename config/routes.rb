@@ -18,13 +18,13 @@ Rails.application.routes.draw do
 
 
 #################   TRIPS   #######################
-  get '/trips/:id/expenses' => 'expenses#index', as: 'expenses'
-  get '/trips/:id/expenses/new' => 'expenses#new', as: 'new_expense'
-  post '/trips/:id/expenses' => 'expenses#create'
+  get '/trips/:trip_id/expenses' => 'expenses#index', as: 'expenses'
+  get '/trips/:trip_id/expenses/new' => 'expenses#new', as: 'new_expense'
+  post '/trips/:trip_id/expenses' => 'expenses#create'
   get '/trips/:id/expenses/:id' => 'expenses#show' , as: 'expense'
-   get '/trips/:id/expenses/:id/edit' => 'expenses#edit', as: 'edit_expense'
-  patch '/trips/:id/expenses/:id' => 'expenses#update'
-  delete '/trips/:id/expenses/:id' => 'expenses#destroy'
+   get '/trips/:trip_id/expenses/:id/edit' => 'expenses#edit', as: 'edit_expense'
+  patch '/trips/:trip_id/expenses/:id' => 'expenses#update'
+  delete '/trips/:trip_id/expenses/:id' => 'expenses#destroy'
 
 
 ###################   FLIGHTS   ##################
@@ -32,6 +32,9 @@ Rails.application.routes.draw do
   get 'trips/:trip_id/flights/new' => 'flights#new', as: 'new_flight'
   post 'trips/:trip_id/flights' => 'flights#create'
   get 'trips/:trip_id/flights/:id' => 'flights#show' , as: 'flight'
+
+  get 'trips/:trip_id/flights/:id/edit' => 'flights#edit' , as: 'edit_flight'
+  patch '/trips/:trip_id/flights/:id' => 'flights#update'
 
 
 end

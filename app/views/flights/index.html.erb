@@ -1,40 +1,80 @@
 <h1>Flights</h1>
 
 <div class="container">
-	<%= @flights.each do |flight| %>
-		<div class="flightDetails-container">
-			<div class="row">
-				<div class="col-3">
-					<%= flight.airline_code %>
-				</div>
 
-				<div class="col-3">
-					<%= flight.flight_no %>
-				</div>
-			</div>
+		<%= link_to image_tag("icons/flightsch.png", id: "addflight", class: "icons-trips"), new_flight_path %>
 
-			<h2>Departure</h2>
-			<div class="row">
-				<div class="col-3">
-					<%= flight.dept_date %>
-				</div>
+		<% if @flights.empty? %>
+			<h2>Whoops! <br/>You dont have any flights yet~ Click on the icon to add!</h2>
+		<% else %>
+		<div class="accordion" id="accordionExample">
+		<% @flights.each do |flight| %>
+	  <div class="card">
+	    <div class="card-header" id="heading<%= flight.id %>">
+	      <h2 class="mb-0">
+	        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse<%= flight.id %>" aria-expanded="false" aria-controls="collapseOne">
+	        	<div class="destination-container">
+	        		<h2><%= flight.from %></h2>
+	        		<%= image_tag("icons/black-plane.png", class: "icons") %>
+	        		<h2><%= flight.to %></h2>
+	        	</div>
+	        </button>
+	        <div class="airline-container">
+	        	<h4><%= flight.airline_code %> <%= flight.flight_no %></h4>
+	        </div>
+	      </h2>
+	      <%= link_to image_tag("icons/writing.png", class: "icons"), "/trips/#{@trip.id}/flights/#{flight.id}/edit" %>
 
-				<div class="col-3">
-					<%= flight.dept_time %>
-				</div>
-			</div>
+	      <%= link_to image_tag("icons/delete.png", class: "icons"), article_path(article),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %>
+	      <%= link_to image_tag("icons/delete.png", class: "icons") %>
+	    </div>
 
-			<h2>Arrival</h2>
-			<div class="row">
-				<div class="col-3">
-					<%= flight.arr_date %>
-				</div>
+	    <div id="collapse<%= flight.id %>" class="collapse" aria-labelledby="heading<%= flight.id %>" data-parent="#accordionExample">
+	      <div class="card-body">
+	      	<div class="flightDetails-container">
+	      		<div class="departure-container">
+		      		<h2>Departure</h2>
+		      		<div class="details-container">
+		      			<div class="date-container">
+		      				<h5>Date</h5>
+		      				<h3><%= flight.dept_date %></h3>
+		      			</div>
 
-				<div class="col-3">
-					<%= flight.arr_time %>
-				</div>
-			</div>
-		</div>
+		      			<div class="time-container">
+		      				<h5>Time</h5>
+		      				<h3><%= flight.dept_time.strftime "%l:%M %p" %><h3>
+		      			</div>
+		      		</div>
+		      	</div>
+
+		      	<div class="arrival-container">
+		      		<h2>Arrival</h2>
+		      		<div class="details-container">
+		      			<div class="date-container">
+		      				<h5>Date</h5>
+		      				<h3><%= flight.arr_date %></h3>
+		      			</div>
+
+		      			<div class="time-container">
+		      				<h5>Time</h5>
+		      				<h3><%= flight.arr_time.strftime "%l:%M %p" %></h3>
+		      			</div>
+		      		</div>
+
+	      		</div>
+	      	</div>
+	      </div>
+	    </div>
+	  </div>
+	  <% end %>
+	</div>  <!-- end of accordion -->
 	<% end %>
+
+	<br />
+	<footer>
+		<%= link_to image_tag("icons/back.png", class: "icons-trips"), @trip %>
+	</footer>
 
 </div>

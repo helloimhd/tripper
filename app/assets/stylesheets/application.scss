@@ -10,11 +10,12 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
-
+ *
  */
 
  @import "bootstrap";
  @import "trips";
+ @import "flights";
 
  // body {
  // 	background-image: url("main-background.jpg");
@@ -24,19 +25,48 @@
  //  position: relative;
  // }
 
+ body {
+ 	//background-color: #F6FFF8;
+ }
+
  h1 {
  	font-family: 'Pacifico', cursive;
  	font-size: 70px;
  	text-align: center;
+ 	margin: 50px;
  }
 
  #to {
  	text-align: center;
  }
 
+
+ img.icons {
+ 	width:30px;
+  height:30px;
+ }
+
+ img.icons-trips {
+ 	width:60px;
+  height:60px;
+ }
+
+ a {
+ 	color: black;
+ }
+
+ .buttons {
+ 	border-radius: 10px;
+ 	background-color: #684551;
+ 	border: none;
+ 	color: #EBE9E9;
+ 	font-size: 25px;
+ 	padding: 5px 15px;
+ }
+
  @media only screen and (max-width: 600px) {
   h1 {
     // color: blue;
   }
-}
 
+}

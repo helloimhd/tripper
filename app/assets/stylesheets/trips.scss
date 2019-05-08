@@ -2,22 +2,122 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.jumbotron {
+	// background: #FFAFBD;  /* fallback for old browsers */
+	// background: -webkit-linear-gradient(to right, #ffc3a0, #FFAFBD);  /* Chrome 10-25, Safari 5.1-6 */
+	// background: linear-gradient(to right, #ffc3a0, #FFAFBD); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+	background-image: asset-url('bg.jpg');
+	background-size: cover;
+	border-radius: 20px;
+
+
+}
+
+
 
 .optionMain-container {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	margin: 0 auto;
+	// border: solid 1px red;
+	padding: 10px;
 }
 
 .option-container {
 	padding: 20px;
-	border: 5px solid red;
-	width: 250px;
-	height: 250px;
+	border: 3px solid #CEA0AE;
+	width: 125px;
+	height: 125px;
 	border-radius: 50%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	margin: 25px;
+}
+
+.days-container {
+	background-color: white;
+	border-radius: 20px;
+	opacity: 0.5;
+
+	p {
+		text-align: center;
+		padding: 10px	;
+		font-weight: bold;
+		color: black;
+	}
+}
+
+.jumbotron.jumbotron-fluid {
+  position: relative;
+}
+
+.delete-container {
+	position: absolute;
+  top: 12px;
+  right: 10px;
+}
+
+.edit-container {
+	position: absolute;
+  top: 12px;
+  right: 50px;
+}
+.tripDetails-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+
+	.tripDuration-container {
+		width: 49%;
+	}
+
+	.tripDate-container {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		padding: 10px;
+	}
+
+	.dayMonth-container {
+		display: flex;
+		flex-direction: column;
+		padding-right: 10px;
+		max-width: 66%;
+
+		h4 {
+			font-size: 20px;
+		}
+	}
+
+	.number-container {
+		display: flex;
+		align-items: center;
+
+		h2 {
+			background-color: white;
+			font-size: 50px;
+		}
+	}
+}
+
+.tripDuration-container {
+	border: 2px solid #CEA0AE;
+	border-radius: 20px;
+
+	h2 {
+		background-color: #CEA0AE;
+		text-align: center;
+		padding: 5px 0 5px;
+		border-radius: 17px 17px 0 0;
+	}
+
+}
+
+.footer {
+
+	img.icons-trips {
+	}
+
 }
