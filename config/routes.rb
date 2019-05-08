@@ -9,8 +9,8 @@ Rails.application.routes.draw do
 
 ###############   TO DO   ###################
   get '/todos' => 'todos#index', as: 'todo'
-  post 'todos' => 'todos#create'
   get '/todos/new' => 'todos#new', as: 'new_todo'
+  post '/todos' => 'todos#create'
   get '/todos/:id' => 'todos#show'
   get '/todos/:id/edit' => 'todos#edit', as: 'edit_todo'
   patch '/todos/:id' => 'todos#update'
@@ -31,7 +31,6 @@ Rails.application.routes.draw do
   get '/trips/:trip_id/flights' => 'flights#index', as: 'flights'
   get 'trips/:trip_id/flights/new' => 'flights#new', as: 'new_flight'
   post 'trips/:trip_id/flights' => 'flights#create'
-
   get 'trips/:trip_id/flights/:id' => 'flights#show' , as: 'flight'
 
 
