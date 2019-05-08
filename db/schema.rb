@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2019_05_07_131638) do
+ActiveRecord::Schema.define(version: 2019_05_08_063537) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,12 +40,14 @@ ActiveRecord::Schema.define(version: 2019_05_07_131638) do
     t.time "dept_time"
     t.date "arr_date"
     t.time "arr_time"
-    t.string "flight_type"
     t.bigint "trip_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "from"
     t.string "to"
+    t.string "airline_name"
+    t.string "from_name"
+    t.string "to_name"
     t.index ["trip_id"], name: "index_flights_on_trip_id"
   end
 
@@ -57,6 +58,7 @@ ActiveRecord::Schema.define(version: 2019_05_07_131638) do
     t.bigint "trip_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "done"
     t.index ["category_id"], name: "index_to_dos_on_category_id"
     t.index ["trip_id"], name: "index_to_dos_on_trip_id"
   end
@@ -68,6 +70,7 @@ ActiveRecord::Schema.define(version: 2019_05_07_131638) do
     t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "budget"
     t.index ["user_id"], name: "index_trips_on_user_id"
   end
 

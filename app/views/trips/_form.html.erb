@@ -1,36 +1,51 @@
-<%= form_with(model: trip, local: true) do |form| %>
-  <% if trip.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(trip.errors.count, "error") %> prohibited this trip from being saved:</h2>
+<div class="container">
+	<%= form_with(model: trip, local: true) do |form| %>
+	  <% if trip.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(trip.errors.count, "error") %> prohibited this trip from being saved:</h2>
 
-      <ul>
-      <% trip.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+	      <ul>
+	      <% trip.errors.full_messages.each do |message| %>
+	        <li><%= message %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+	  <%= form.hidden_field :user_id, value: current_user.id %>
 
-  <div class="field">
-  	<%= form.hidden_field :user_id, value: current_user.id %>
-  </div>
+		<div class="form-row">
+			<div class="col-6">
+				<label>Name</label>
+				<%= form.text_field :name, class: "form-control form-control-lg" %>
+			</div>
 
-  <div class="field">
-    <%= form.label :start_date %>
-    <%= form.date_select :start_date %>
-  </div>
+		</div>
 
-  <div class="field">
-    <%= form.label :end_date %>
-    <%= form.date_select :end_date %>
-  </div>
+		<br />
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+		<div class="form-row">
+			<div class="col-6">
+				<label>Start Date</label>
+				<%= form.date_field :start_date, min: Date.today, class: "form-control form-control-lg" %>
+			</div>
+
+			<div class="col-6">
+				<label>End Date</label>
+				<%= form.date_field :end_date, min: Date.today, class: "form-control form-control-lg" %>
+			</div>
+		</div>
+
+		<br />
+
+		<button type="submit" class="buttons">Confirm</button>
+
+		<% end %>
+
+		<br />
+
+		<footer>
+			<%= link_to image_tag("icons/back.png", class: "icons-trips"), trips_path %>
+		</footer>
+
+</div>

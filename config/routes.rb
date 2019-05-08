@@ -33,5 +33,8 @@ Rails.application.routes.draw do
   post 'trips/:trip_id/flights' => 'flights#create'
   get 'trips/:trip_id/flights/:id' => 'flights#show' , as: 'flight'
 
+  get 'trips/:trip_id/flights/:id/edit' => 'flights#edit' , as: 'edit_flight'
+  patch '/trips/:trip_id/flights/:id' => 'flights#update'
+
 
 end
