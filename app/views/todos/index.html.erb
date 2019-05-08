@@ -1,0 +1,31 @@
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<h1> Items</h1>
+<div class = "container">
+	<table class="table table-hover table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Date</th>
+      <th scope="col">Category</th>
+      <th scope="col">Plan</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+      <th scope="col">Completed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @todos.each_with_index do |todo, index|%>
+    <tr>
+      <th scope="row"><%= todo.date %></th>
+      <td><%= todo.category.name %></td>
+      <td><%= todo.details%></td>
+      <td><%= link_to 'Edit', edit_todo_path(todo) %></td>
+      <td><%= link_to 'Destroy', destroy_todo_path(todo), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <td><%= check_box_tag "done#{index}", todo.category.name, todo.done %></td>
+
+    </tr>
+      <% end %>
+
+  </tbody>
+</table>
+</div>

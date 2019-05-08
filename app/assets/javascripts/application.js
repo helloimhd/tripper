@@ -12,8 +12,6 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require popper
-//= require bootstrap
 //= require_tree .
 
 //= require jquery3
@@ -22,3 +20,6 @@
 
 //= require Chart.bundle
 //= require chartkick
+
+console.log("test")
+

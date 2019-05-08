@@ -7,6 +7,7 @@ class ExpensesController < ApplicationController
     @spend = Expense.sum(:amount)
     @paid = Expense.where(:spent => true).sum(:amount)
     @unpaid = Expense.where(:spent => false).sum(:amount)
+
     #@test = Category.all.map{|category| category.expense}.sum(:amount)
     # byebug
      @column = @expenses.group(:category_id).sum(:amount)
@@ -22,6 +23,7 @@ class ExpensesController < ApplicationController
       end
      end
      # p @newObjs
+
   end
 
   def show

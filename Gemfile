@@ -42,7 +42,6 @@ gem 'jquery-rails'
 
 gem 'airports', '~> 1.2.0'
 
-gem 'jquery-rails'
 
 gem 'chartkick'
 

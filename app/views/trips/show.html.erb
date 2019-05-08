@@ -1,26 +1,63 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @trip.name %>
-</p>
+<div class="container">
+	<h1><%= @trip.name %></h1>
 
-<p>
-  <strong>Start date:</strong>
-  <%= @trip.start_date %>
-</p>
+	<div class="tripDetails-container">
 
-<p>
-  <strong>End date:</strong>
-  <%= @trip.end_date %>
-</p>
+		<div class="tripDuration-container">
+			<h2>Start</h2>
+			<div class="tripDate-container">
+				<div class="dayMonth-container">
+					<h4><%= @trip.start_date.strftime("%A") %><h4>
+					<h4><%= @trip.start_date.strftime("%B") %></h4>
+				</div>
+
+				<div class="number-container">
+					<h2><%= @trip.start_date.strftime("%d") %></h2>
+				</div>
+			</div>
+		</div>
+
+		<div class="tripDuration-container">
+			<h2>End</h2>
+			<div class="tripDate-container">
+				<div class="dayMonth-container">
+					<h4><%= @trip.end_date.strftime("%A") %></h4>
+					<h4><%= @trip.end_date.strftime("%B") %></h4>
+				</div>
+
+				<div class="number-container">
+					<h2><%= @trip.end_date.strftime("%d") %><h2>
+				</div>
+			</div>
+		</div>
+
+	</div>
 
 
-<%= link_to 'Add Flight', "#" %><br>
-<%= link_to 'To Do List', "#" %><br>
-<%= link_to 'Expenses', "#" %><br>
 
-<br>
+		<div class="optionMain-container">
+			<div class="option-container">
+				<div class="optionText">
+					<%= link_to image_tag("icons/plane.png", class: "icons-trips"), "flights" %>
+				</div>
+			</div>
 
-<%= link_to 'Edit', edit_trip_path(@trip) %> |
-<%= link_to 'Back', trips_path %>
+			<div class="option-container">
+				<div class="optionText">
+					<%= link_to image_tag("icons/to-do-list.png", class: "icons-trips"), "#" %>
+				</div>
+			</div>
+
+			<div class="option-container">
+				<div class="optionText">
+					<%= link_to image_tag("icons/expensive.png", class: "icons-trips"), "expenses" %>
+				</div>
+			</div>
+		</div>
+
+		<footer>
+			<%= link_to image_tag("icons/back.png", class: "icons-trips"), trips_path %>
+		</footer>
+	</div>
