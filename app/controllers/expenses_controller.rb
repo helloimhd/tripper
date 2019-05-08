@@ -1,12 +1,12 @@
 class ExpensesController < ApplicationController
 
   def index
-    @expenses = Expense.all
+    @trip = Trip.find(params[:trip_id])
+    @expenses = Expense.all.where(trip_id: @trip)
     @categories =Category.all
-    @trip = Trip.find(params[:id])
-    @spend = Expense.sum(:amount)
-    @paid = Expense.where(:spent => true).sum(:amount)
-    @unpaid = Expense.where(:spent => false).sum(:amount)
+    @spend = @expenses.sum(:amount)
+    @paid = @expenses.where(:spent => true).sum(:amount)
+    @unpaid = @expenses.where(:spent => false).sum(:amount)
 
     #@test = Category.all.map{|category| category.expense}.sum(:amount)
     # byebug
@@ -39,6 +39,7 @@ class ExpensesController < ApplicationController
   end
 
   def edit
+    @trip = Trip.find(params[:trip_id])
     @expense = Expense.find(params[:id])
     @categories = Category.all
   end
