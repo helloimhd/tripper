@@ -1,3 +1,4 @@
+<div class="container"
 <p id="notice"><%= notice %></p>
 <br>
 <h1><%= @trip.name %></h1>
@@ -54,7 +55,7 @@
 		<td scope="row"><%= expense.details %></td>
 		<td scope="row">$<%= expense.amount %></td>
 		<td scope="row"><%= expense.category.name %></td>
-		<td><%= link_to 'Edit', edit_expense_path(expense) %></td>
+		<td><%= link_to 'Edit', "/trips/#{@trip.id}/expenses/#{expense.id}/edit" %></td>
 		<td><%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 	  </tr>
 	  <%else %>
@@ -82,7 +83,7 @@
 		<td scope="row"><%= expense.details %></td>
 		<td scope="row">$ <%= expense.amount %></td>
 		<td scope="row"><%= expense.category.name %></td>
-		<td><%= link_to 'Edit', edit_expense_path(expense) %></td>
+		<td><%= link_to 'Edit', "/trips/#{@trip.id}/expenses/#{expense.id}/edit" %></td>
 		<td><%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 	  </tr>
 	  <%else %>
@@ -95,3 +96,4 @@
 <%= link_to 'New Exp', new_expense_path %>
 <br>
 <%= link_to 'log out', destroy_user_session_url, method: :delete %>
+</div>
