@@ -2,7 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
 .jumbotron {
 	// background: #FFAFBD;  /* fallback for old browsers */
 	// background: -webkit-linear-gradient(to right, #ffc3a0, #FFAFBD);  /* Chrome 10-25, Safari 5.1-6 */
@@ -60,6 +59,11 @@
   right: 10px;
 }
 
+.edit-container {
+	position: absolute;
+  top: 12px;
+  right: 50px;
+}
 .tripDetails-container {
 	display: flex;
 	flex-direction: row;
@@ -96,7 +100,14 @@
 		background-color: #D5B0AC;
 		text-align: center;
 		padding: 5px 0 5px;
-		border-radius: 15px 15px 0 0;
+		border-radius: 17px 17px 0 0;
+	}
+
+}
+
+.footer {
+
+	img.icons-trips {
 	}
 
 }
