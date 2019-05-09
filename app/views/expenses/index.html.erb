@@ -1,43 +1,68 @@
-<div class="container"
+<%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
+
+<div class="container">
 <p id="notice"><%= notice %></p>
 <br>
 <h1><%= @trip.name %></h1>
 <br>
 <br>
-
-
-
+<%= link_to image_tag("icons/add.png", class: "icons"), new_expense_path %>
+<br>
+<%= link_to 'log out', destroy_user_session_url, method: :delete %>
+<br>
+<br>
 	<div class="col-xs-6">
 				<%= column_chart @columnChart,
 				# height: "400px",
 				# width: "400px",
 				title: "",
-				colors:["#b00"],
+				colors:["#402E2A"],
 				prefix: '$',
+				thousands: ",",
 				label: ""
 			%>
 	</div>
 <br>
 
+<div class="col-xs-6">
+				<%= column_chart [
+          {name:"Paid",data: {"Spend":@paid}},
+          {name:"Unpaid",data: {"Spend":@unpaid}},
+          {name:"Total", data: {"Spend":@spend}},
+          {name:"Budget", data: {"Spend":@budget}},
+          {name:"Sav(Ovr)", data: {"Spend":(@budget-@spend)}}
+        ],
+				title: "",
+				colors:["black","blue","green","yellow","red"],
+				prefix: '$',
+				thousands: ",",
+				legend: "bottom",
+				label: ""
+			%>
+	</div>
+<br>
 
 <div class="container">
 	<div class="row justify-content-center">
-		<div class="col-3">
+		<div class="col-xs">
 			<h6>Paid: </h6>
 			<h6>Unpaid: </h6>
-			<h6>Total Spend: </h6>
+			<h6>Total: </h6>
+			<h6 style="color: blue;">Budget:
+			<h6>Sav (Ovr): </h6>
 		</div>
-		<div class="col-3">
-			<h6>$ <%= @paid %></h6>
-			<h6>$ <%= @unpaid %></h6>
-			<h6>$ <%= @spend %></h6>
+		<div class="col-xs">
+			<h6><%= number_to_currency(@paid, precision:0) %></h6>
+			<h6><%= number_to_currency(@unpaid, precision:0) %></h6>
+			<h6><%= number_to_currency(@spend, precision:0) %></h6>
+			<h6 style="color: blue;"><%= number_to_currency(@budget, precision:0) %>
+			<h6 id="changeColour"><%= number_to_currency((@budget - @spend), precision:0) %>
 		</div>
 	</div>
 </div>
 
-
 <br>
-<h4> Paid Exp</h4>
+<h4> Paid</h4>
 <table class="table table-sm table-hover">
   <thead class="thead-dark">
 	<tr>
@@ -53,10 +78,10 @@
 		<%if expense.spent == true %>
 	  <tr>
 		<td scope="row"><%= expense.details %></td>
-		<td scope="row">$<%= expense.amount %></td>
+		<td scope="row"><%= number_to_currency(expense.amount, precision:2) %></td>
 		<td scope="row"><%= expense.category.name %></td>
-		<td><%= link_to 'Edit', "/trips/#{@trip.id}/expenses/#{expense.id}/edit" %></td>
-		<td><%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		<td><%= link_to image_tag("icons/writing.png", class: "icons"), "/trips/#{@trip.id}/expenses/#{expense.id}/edit" %></td>
+		<td><%= link_to image_tag("icons/delete.png", class: "icons"), expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 	  </tr>
 	  <%else %>
 	  <p> </p>
@@ -65,7 +90,7 @@
   </tbody>
 </table>
 <br>
-<h4> Unpaid Exp</h4>
+<h4> Unpaid</h4>
 <table class="table table-sm table-hover">
   <thead class="thead-dark">
 	<tr>
@@ -81,10 +106,12 @@
 		<%if expense.spent == false %>
 	  <tr>
 		<td scope="row"><%= expense.details %></td>
-		<td scope="row">$ <%= expense.amount %></td>
+		<td scope="row"><%= number_to_currency(expense.amount, precision:2) %></td>
 		<td scope="row"><%= expense.category.name %></td>
-		<td><%= link_to 'Edit', "/trips/#{@trip.id}/expenses/#{expense.id}/edit" %></td>
-		<td><%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		<td><%= link_to image_tag("icons/writing.png", class: "icons"), "/trips/#{@trip.id}/expenses/#{expense.id}/edit" %></td>
+		<td><%= link_to image_tag("icons/delete.png", class: "icons"), expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			</div>
+		</div>
 	  </tr>
 	  <%else %>
 	  <p> </p>
@@ -92,8 +119,8 @@
 	<% end %>
   </tbody>
 </table>
-<br>
-<%= link_to 'New Exp', new_expense_path %>
-<br>
-<%= link_to 'log out', destroy_user_session_url, method: :delete %>
+		<footer>
+			<%= link_to image_tag("icons/back.png", class: "icons-trips"), trips_path %>
+		</footer>
+
 </div>

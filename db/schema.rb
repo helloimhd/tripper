@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2019_05_08_063537) do
 
   # These are extensions that must be enabled in order to support this database
@@ -46,9 +45,6 @@ ActiveRecord::Schema.define(version: 2019_05_08_063537) do
     t.datetime "updated_at", null: false
     t.string "from"
     t.string "to"
-    t.string "airline_name"
-    t.string "from_name"
-    t.string "to_name"
     t.index ["trip_id"], name: "index_flights_on_trip_id"
   end
 
