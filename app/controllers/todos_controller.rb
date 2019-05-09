@@ -38,12 +38,6 @@ class TodosController < ApplicationController
       @trip = Trip.find(params[:trip_id])
 	 end
 
-   def testing
-
-    @qwerty = ToDo.first
-
-   end
-
 	def update
     @trip = Trip.find(params[:trip_id])
     @todo = ToDo.find(params[:id])
