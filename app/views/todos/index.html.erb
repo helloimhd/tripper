@@ -19,8 +19,8 @@
       <th scope="row"><%= todo.date %></th>
       <td><%= todo.category.name %></td>
       <td><%= todo.details%></td>
-      <td><%= link_to 'Edit', edit_todo_path(todo) %></td>
-      <td><%= link_to 'Destroy', destroy_todo_path(todo), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <td><%= link_to 'Edit', "/trips/#{@trip.id}/todos/#{todo.id}/edit" %></td>
+      <td><%= link_to 'Destroy', "/trips/#{@trip.id}/todos/#{todo.id}", method: :delete, data: { confirm: 'Are you sure?' } %>
       <td><%= check_box_tag "done#{index}", todo.category.name, todo.done %></td>
 
     </tr>

@@ -8,11 +8,11 @@ Rails.application.routes.draw do
   root 'main#index'
 
 ###############   TO DO   ###################
-  get '/trips/:trip_id/todos' => 'todos#index', as: 'todo'
+  get '/trips/:trip_id/todos' => 'todos#index', as: 'todos'
   get '/trips/:trip_id/todos/new' => 'todos#new', as: 'new_todo'
   post '/trips/:trip_id/todos' => 'todos#create'
   get '/trips/:trip_id/todos/:id' => 'todos#show', as: 'show_todo'
-  get '/trips/:trip_id/todos/:id/edit' => 'todos#edit', as: 'edit_todo'
+  get '/trips/:trip_id/todos/:id/edit' => 'todos#testing', as: 'edit_todo'
   patch '/trips/:trip_id/todos/:id' => 'todos#update'
   delete '/trips/:trip_id/todos/:id' => 'todos#destroy', as: 'destroy_todo'
 
