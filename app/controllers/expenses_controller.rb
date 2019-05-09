@@ -59,14 +59,14 @@ class ExpensesController < ApplicationController
     @expense = Expense.find(params[:id])
 
     @expense.update(expense_params)
-    redirect_to @expense
+    redirect_to expenses_url
   end
 
   def destroy
     @expense = Expense.find(params[:id])
 
     @expense.destroy
-    redirect_to trips_url
+    redirect_to expenses_url
   end
 
   private
