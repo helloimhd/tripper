@@ -31,7 +31,7 @@
  }
 
  h1 {
- 	font-family: 'Pacifico', cursive;
+ 	font-family: 'Chelsea Market', cursive;
  	font-size: 70px;
  	text-align: center;
  	margin: 50px;
@@ -52,6 +52,17 @@
   height:60px;
  }
 
+ .iconHeader-container {
+ 	display: flex;
+ 	flex-direction: row;
+ 	justify-content: space-between;
+
+ 	// .homeBye-container {
+ 	// 	align-self:
+
+ 	// }
+ }
+
  a {
  	color: black;
  }
@@ -64,6 +75,8 @@
  	font-size: 25px;
  	padding: 5px 15px;
  }
+
+
 
  @media only screen and (max-width: 600px) {
   h1 {

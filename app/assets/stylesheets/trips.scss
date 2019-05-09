@@ -7,7 +7,8 @@
 	// background: -webkit-linear-gradient(to right, #ffc3a0, #FFAFBD);  /* Chrome 10-25, Safari 5.1-6 */
 	// background: linear-gradient(to right, #ffc3a0, #FFAFBD); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-	background-image: asset-url('bg.jpg');
+	//background-image: asset-url('bg.jpg');
+	//background-image: url("https://source.unsplash.com/collection/477172");
 	background-size: cover;
 	border-radius: 20px;
 
@@ -37,15 +38,25 @@
 }
 
 .days-container {
-	background-color: white;
+	background-color: rgba(255,255,255,0.6);
 	border-radius: 20px;
-	opacity: 0.5;
 
 	p {
 		text-align: center;
 		padding: 10px	;
 		font-weight: bold;
 		color: black;
+	}
+}
+
+.tripName-container {
+	background-color: rgba(255,255,255,0.6);
+	border-radius: 20px;
+
+
+	h1 {
+		padding: 10px	;
+		font-weight: bold;
 	}
 }
 

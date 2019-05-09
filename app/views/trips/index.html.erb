@@ -1,21 +1,29 @@
-<p><%= link_to 'log out', destroy_user_session_url, method: :delete %>
-</p>
-
-
 <h1>Trips</h1>
 
 <div class="container">
-	<%= link_to image_tag("icons/appointments.png", class: "icons-trips"), new_trip_path%>
+	<div class="iconHeader-container">
+		<%= link_to image_tag("icons/appointments.png", class: "icons-trips"), new_trip_path%>
+
+		<div class="homeBye-container">
+			<%= link_to image_tag("icons/house.png", class: "icons-trips"), root_path %>
+			<%= link_to image_tag("icons/exit.png", class: "icons-trips"), destroy_user_session_url, method: :delete %>
+		</div>
+	</div>
 
 	<br>
 	<br>
 
+	<% @any = 0 %>
 	<% @trips.each do |trip| %>
 
-	<div class="jumbotron jumbotron-fluid">
+	<div class="jumbotron jumbotron-fluid" style="background-image: url('https://source.unsplash.com/collection/<%= @hello[@any] %>')" >
+		<% @any = (@any + 1) %10 %>
 	  <div class="container">
 
-			<h1 class="display-4"><%= link_to trip.name, trip %></h1>
+	  	<div class="tripName-container">
+				<h1 class="display-4"><%= link_to trip.name, trip %></h1>
+			</div>
+
 			<div class="days-container">
 	  		<p class="lead">Days Left: <%= days_left = (trip.start_date - Date.today).to_i %></p>
 			</div>
