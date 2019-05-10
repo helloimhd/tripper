@@ -72,10 +72,10 @@
  	text-decoration:none;
  }
 
-	 a:active {
-	 	text-decoration: none;
-	 	color: black;
-	 }
+ a:active {
+ 	text-decoration: none;
+ 	color: inherit;
+ }
 
  .buttons {
  	border-radius: 10px;
