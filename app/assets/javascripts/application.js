@@ -21,12 +21,7 @@
 //= require Chart.bundle
 //= require chartkick
 
-//= require jquery.purr
-//= require best_in_place
-
-
-    $(document).ready ->
-      jQuery(".best_in_place").best_in_place()
+//= require flatpickr
 
 
 console.log("test")

@@ -12,50 +12,49 @@
 
 	<br />
 
-	<%= form_with scope: :flight, url: flights_path, html: { autocomplete: "off" }, local: true do |form| %>
+	<%= form_with scope: :flight, url: flights_path, local: true do |form| %>
 
 	<input type="hidden" value="<%= @trip.id %>" name="flight[trip_id]"></input>
 
 
 
 	<div class="form-row">
-		<div class="col-6 col-lg-6">
+		<div class="col-8 col-lg-6">
 			<label>Airline</label>
-			<%= form.text_field :airline_code, list: "airlines", class: "form-control form-control-lg", placeholder: "Airline Name" %>
+			<%= form.text_field :airline_code, list: "airlines", class: "form-control form-control-lg" %>
 			<datalist id="airlines">
 				<%= @responses.each do |response| %>
 					<option value=<%= response["id"] %>><%= response["name"] %></option>
 				<% end %>
+
 			</datalist>
 		</div>
 
-		<div class="col-6 col-lg-6">
+		<div class="col-4 col-lg-6">
 			<label>Flight No.</label>
-			<%= form.text_field :flight_no, class: "form-control form-control-lg", placeholder: "000" %>
+			<%= form.text_field :flight_no, class: "form-control form-control-lg" %>
 		</div>
 	</div>
 
 	<br />
 
 	<div class="form-row">
-		<div class="col-6 col-lg-6">
+		<div class="col-12 col-lg-6">
 			<label>From</label>
-			<%= form.text_field :from, list: "fromAirport", class: "form-control form-control-lg", placeholder: "Departing from ..." %>
-			<datalist id="fromAirport">
+			<select class="form-control form-control-lg" name="flight[from]" id="selectInput">
 				<%= @airports.each do |airport| %>
 					<option value="<%= airport.iata %>"><%= airport.name %></option>
 				<% end %>
-			</datalist>
+			</select>
 		</div>
 
-		<div class="col-6 col-lg-6">
+		<div class="col-12 col-lg-6">
 			<label>To</label>
-			<%= form.text_field :to, list: "toAirport", class: "form-control form-control-lg", placeholder: "Arriving at ..." %>
-			<datalist id="toAirport">
+			<select class="form-control form-control-lg" name="flight[to]" id="selectInput">
 				<%= @airports.each do |airport| %>
 					<option value="<%= airport.iata %>"><%= airport.name %></option>
 				<% end %>
-			</datalist>
+			</select>
 		</div>
 	</div>
 
@@ -64,14 +63,7 @@
 	<div class="form-row">
 		<div class="col-7 col-lg-6">
 			<label>Departure Date</label>
-
-			<input type="text" id="flatpickr-input">
-
-			<script type="text/javascript">
-			  $(document).ready(function(){
-			    flatpickr('#flatpickr-input');
-			  });
-			</script>
+			<%= form.date_field :dept_date, min: @trip.start_date, max: @trip.end_date, class: "form-control form-control-lg" %>
 		</div>
 
 		<div class="col-5 col-lg-6">
