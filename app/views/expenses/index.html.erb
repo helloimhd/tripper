@@ -2,38 +2,13 @@
 
 <div class="container">
 <p id="notice"><%= notice %></p>
-<br>
 <h1><%= @trip.name %></h1>
 <br>
+<%= link_to image_tag("icons/addexpense.png", class: "icons", title:"Add Expense"), new_expense_path %>
+<%=  link_to image_tag("icons/logout.png", class: "icons",title:"Log Out"), destroy_user_session_url, method: :delete %>
+<%= link_to image_tag("icons/back.png", class: "icons-trips",title:"Back"), trips_path %>
+<%= link_to image_tag("icons/expenselist.png", class: "icons-trips",title:"Expense List"), expenses_details_path %>
 <br>
-<%= link_to image_tag("icons/add.png", class: "icons"), new_expense_path %>
-<br>
-<%= link_to 'log out', destroy_user_session_url, method: :delete %>
-<br>
-<br>
-	<div class="col-xs-6">
-				<%= column_chart @columnChart,
-				# height: "400px",
-				# width: "400px",
-				title: "",
-				colors:["#402E2A"],
-				prefix: '$',
-				thousands: ",",
-				label: ""
-			%>
-	</div>
-<br>
-
-<div class="col-xs-6">
-				<%= column_chart chartData,
-				title: "",
-				colors:["black","blue","green","yellow","red"],
-				prefix: '$',
-				thousands: ",",
-				legend: "bottom",
-				label: ""
-			%>
-	</div>
 <br>
 
 <div class="container">
@@ -41,23 +16,56 @@
 		<div class="col-xs">
 			<h6>Paid: </h6>
 			<h6>Unpaid: </h6>
+			<h6>---------</h6>
 			<h6>Total: </h6>
+			<h6>---------</h6>
 			<h6 style="color: blue;">Budget:
-			<h6>Sav (Ovr): </h6>
+			<h6>---------</h6>
+			<h6>Sav (Over): </h6>
 		</div>
 		<div class="col-xs">
 			<h6><%= number_to_currency(@paid, precision:0) %></h6>
 			<h6><%= number_to_currency(@unpaid, precision:0) %></h6>
+			<h6>---------</h6>
 			<h6><%= number_to_currency(@spend, precision:0) %></h6>
+			<h6>---------</h6>
 			<h6 style="color: blue;"><%= number_to_currency(@budget, precision:0) %>
-			<h6 id="changeColour"><%= number_to_currency((@budget - @spend), precision:0) %>
+			<h6>---------</h6>
+				<% if ((@budget-@spend)<0) %>
+						<h6 style="color: red;"><%= number_to_currency((@budget - @spend), precision:0) %>
+						<% else %>
+						<h6><%= number_to_currency((@budget - @spend), precision:0) %>
+						<% end %>
 		</div>
 	</div>
 </div>
-		<footer>
-			<%= link_to image_tag("icons/back.png", class: "icons-trips"), trips_path %>
+<br>
+<br>
+	<div class="col-xs-3">
+				<%= column_chart @columnChart,
+				title: "",
+				# colors:["#402E2A"],
+				prefix: '$',
+				thousands: ","
+			%>
+	</div>
+<br>
 
-			<%= link_to image_tag("icons/expensive.png", class: "icons-trips"), expenses_details_path %>
+	<div class="col-xs-3">
+				<%= bar_chart stackChart,
+				title: "",
+				# colors:["black","blue","lightblue","lime"],
+				# ["#402E2A","#684551","#CEA0AE","#D5B0AC"],
+				prefix: '$',
+				thousands: ",",
+				legend: "bottom"
+			%>
+	</div>
+<br>
+
+
+		<footer>
+
 		</footer>
 
 </div>

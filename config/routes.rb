@@ -26,7 +26,7 @@ Rails.application.routes.draw do
    get '/trips/:trip_id/expenses/:id/edit' => 'expenses#edit', as: 'edit_expense'
   patch '/trips/:trip_id/expenses/:id' => 'expenses#update'
   delete '/trips/:trip_id/expenses/:id' => 'expenses#destroy'
-
+  put '/trips/:trip_id/expenses/:id' => 'expenses#paidTick'
 
 ###################   FLIGHTS   ##################
   get '/trips/:trip_id/flights' => 'flights#index', as: 'flights'
