@@ -25,13 +25,7 @@
 <br>
 
 <div class="col-xs-6">
-				<%= column_chart [
-          {name:"Paid",data: {"Spend":@paid}},
-          {name:"Unpaid",data: {"Spend":@unpaid}},
-          {name:"Total", data: {"Spend":@spend}},
-          {name:"Budget", data: {"Spend":@budget}},
-          {name:"Sav(Ovr)", data: {"Spend":(@budget-@spend)}}
-        ],
+				<%= column_chart chartData,
 				title: "",
 				colors:["black","blue","green","yellow","red"],
 				prefix: '$',
@@ -60,67 +54,10 @@
 		</div>
 	</div>
 </div>
-
-<br>
-<h4> Paid</h4>
-<table class="table table-sm table-hover">
-  <thead class="thead-dark">
-	<tr>
-	  <th scope="col">Details</th>
-	  <th scope="col">Amount</th>
-	  <th scope="col">Category</th>
-	  <th colspan="3"></th>
-	</tr>
-  </thead>
-
-  <tbody>
-	<% @expenses.each do |expense| %>
-		<%if expense.spent == true %>
-	  <tr>
-		<td scope="row"><%= expense.details %></td>
-		<td scope="row"><%= number_to_currency(expense.amount, precision:2) %></td>
-		<td scope="row"><%= expense.category.name %></td>
-		<td><%= link_to image_tag("icons/writing.png", class: "icons"), "/trips/#{@trip.id}/expenses/#{expense.id}/edit" %></td>
-		<td><%= link_to image_tag("icons/delete.png", class: "icons"), expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-	  </tr>
-	  <%else %>
-	  <p> </p>
-	  <% end %>
-	<% end %>
-  </tbody>
-</table>
-<br>
-<h4> Unpaid</h4>
-<table class="table table-sm table-hover">
-  <thead class="thead-dark">
-	<tr>
-	  <th scope="col">Details</th>
-	  <th scope="col">Amount</th>
-	  <th scope="col">Category</th>
-	  <th colspan="3"></th>
-	</tr>
-  </thead>
-
-  <tbody>
-	<% @expenses.each do |expense| %>
-		<%if expense.spent == false %>
-	  <tr>
-		<td scope="row"><%= expense.details %></td>
-		<td scope="row"><%= number_to_currency(expense.amount, precision:2) %></td>
-		<td scope="row"><%= expense.category.name %></td>
-		<td><%= link_to image_tag("icons/writing.png", class: "icons"), "/trips/#{@trip.id}/expenses/#{expense.id}/edit" %></td>
-		<td><%= link_to image_tag("icons/delete.png", class: "icons"), expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-			</div>
-		</div>
-	  </tr>
-	  <%else %>
-	  <p> </p>
-	  <% end %>
-	<% end %>
-  </tbody>
-</table>
 		<footer>
 			<%= link_to image_tag("icons/back.png", class: "icons-trips"), trips_path %>
+
+			<%= link_to image_tag("icons/expensive.png", class: "icons-trips"), expenses_details_path %>
 		</footer>
 
 </div>

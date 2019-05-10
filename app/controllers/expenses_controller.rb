@@ -27,6 +27,18 @@ class ExpensesController < ApplicationController
 
   end
 
+  def index2
+    @trips = Trip.all
+    @trip = Trip.find(params[:trip_id])
+    @expenses = Expense.all.where(trip_id: @trip)
+    @categories =Category.all
+    @spend = @expenses.sum(:amount)
+    @paid = @expenses.where(:spent => true).sum(:amount)
+    @unpaid = @expenses.where(:spent => false).sum(:amount)
+    @budget = @trip.budget
+  end
+
+
   def show
     @expenses = Expense.all
     @categories = Category.all

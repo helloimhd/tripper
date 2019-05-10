@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
 #################   TRIPS   #######################
   get '/trips/:trip_id/expenses' => 'expenses#index', as: 'expenses'
+  get '/trips/:trip_id/expenses/details' => 'expenses#index2', as: 'expenses_details'
   get '/trips/:trip_id/expenses/new' => 'expenses#new', as: 'new_expense'
   post '/trips/:trip_id/expenses' => 'expenses#create'
   get '/trips/:id/expenses/:id' => 'expenses#show' , as: 'expense'
