@@ -2,6 +2,16 @@
 
 <div class="container">
 
+	<div class="iconHeader-container">
+		<div></div>
+		<div class="homeBye-container">
+			<%= link_to image_tag("icons/house.png", class: "icons-trips"), root_path %>
+			<%= link_to image_tag("icons/exit.png", class: "icons-trips", id: "exit"), destroy_user_session_url, method: :delete %>
+		</div>
+	</div>
+
+	<br />
+
 	<%= form_with scope: :flight, url: flights_path, local: true do |form| %>
 
 	<input type="hidden" value="<%= @trip.id %>" name="flight[trip_id]"></input>
@@ -11,7 +21,7 @@
 	<div class="form-row">
 		<div class="col-8 col-lg-6">
 			<label>Airline</label>
-			<select class="form-control form-control-lg" name="flight[airline_code]">
+			<select class="form-control form-control-lg" name="flight[airline_code]" id="selectInput">
 				<%= @responses.each do |response| %>
 					<option value=<%= response["id"] %>><%= response["name"] %></option>
 				<% end %>
@@ -19,7 +29,7 @@
 		</div>
 
 		<div class="col-4 col-lg-6">
-			<label>Flight Number</label>
+			<label>Flight No.</label>
 			<%= form.text_field :flight_no, class: "form-control form-control-lg" %>
 		</div>
 	</div>
@@ -29,7 +39,7 @@
 	<div class="form-row">
 		<div class="col-12 col-lg-6">
 			<label>From</label>
-			<select class="form-control form-control-lg" name="flight[from]">
+			<select class="form-control form-control-lg" name="flight[from]" id="selectInput">
 				<%= @airports.each do |airport| %>
 					<option value="<%= airport.iata %>"><%= airport.name %></option>
 				<% end %>
@@ -38,7 +48,7 @@
 
 		<div class="col-12 col-lg-6">
 			<label>To</label>
-			<select class="form-control form-control-lg" name="flight[to]">
+			<select class="form-control form-control-lg" name="flight[to]" id="selectInput">
 				<%= @airports.each do |airport| %>
 					<option value="<%= airport.iata %>"><%= airport.name %></option>
 				<% end %>
@@ -55,7 +65,7 @@
 		</div>
 
 		<div class="col-5 col-lg-6">
-			<label>Departure Time</label>
+			<label>Time</label>
 			<%= form.time_field :dept_time, class: "form-control form-control-lg" %>
 		</div>
 	</div>
@@ -69,7 +79,7 @@
 		</div>
 
 		<div class="col-5 col-lg-6">
-			<label>Arrival Time</label>
+			<label>Time</label>
 			<%= form.time_field :arr_time, class: "form-control form-control-lg" %>
 		</div>
 	</div>

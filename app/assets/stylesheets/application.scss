@@ -57,10 +57,9 @@
  	flex-direction: row;
  	justify-content: space-between;
 
- 	// .homeBye-container {
- 	// 	align-self:
-
- 	// }
+ 	#exit {
+ 		margin-left: 10px;
+ 	}
  }
 
  a {
@@ -72,9 +71,24 @@
  	background-color: #684551;
  	border: none;
  	color: #EBE9E9;
+ 	font-family: 'Smythe', cursive;
  	font-size: 25px;
+ 	font-weight: 900;
  	padding: 5px 15px;
  }
+
+ label {
+ 	font-family: 'PT Sans Narrow', sans-serif;
+ 	font-size: 30px;
+ 	font-weight: 900;
+ }
+
+ input[type="text"], input[type="date"], input[type="time"], #selectInput {
+ 	font-family: 'PT Sans Narrow', sans-serif;
+ 	font-weight: 900;
+ 	font-size: 20px;
+
+}
 
 
 

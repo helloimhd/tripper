@@ -3,16 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .jumbotron {
-	// background: #FFAFBD;  /* fallback for old browsers */
-	// background: -webkit-linear-gradient(to right, #ffc3a0, #FFAFBD);  /* Chrome 10-25, Safari 5.1-6 */
-	// background: linear-gradient(to right, #ffc3a0, #FFAFBD); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-	//background-image: asset-url('bg.jpg');
-	//background-image: url("https://source.unsplash.com/collection/477172");
 	background-size: cover;
 	border-radius: 20px;
-
-
 }
 
 
@@ -43,7 +35,9 @@
 
 	p {
 		text-align: center;
-		padding: 10px	;
+		padding: 10px;
+		font-family: 'PT Sans Narrow', sans-serif;
+		font-size: 30px;
 		font-weight: bold;
 		color: black;
 	}
@@ -55,7 +49,7 @@
 
 
 	h1 {
-		padding: 10px	;
+		padding: 10px;
 		font-weight: bold;
 	}
 }
@@ -82,6 +76,12 @@
 
 	.tripDuration-container {
 		width: 49%;
+
+		h2 {
+			font-family: 'Pompiere', cursive;
+			font-weight: bold;
+			font-size: 45px;
+		}
 	}
 
 	.tripDate-container {
@@ -98,7 +98,9 @@
 		max-width: 66%;
 
 		h4 {
-			font-size: 20px;
+			font-size: 25px;
+			font-family: 'Pompiere', cursive;
+			font-weight: 700;
 		}
 	}
 
@@ -109,6 +111,7 @@
 		h2 {
 			background-color: white;
 			font-size: 50px;
+			font-weight: 900;
 		}
 	}
 }
