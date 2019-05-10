@@ -12,37 +12,43 @@
 
 	<br />
 
-	<% @any = 0 %>
-	<% @trips.each do |trip| %>
+	<% if @trips.empty? %>
+		<h2>Start adding your trip!</h2>
+	<% else %>
 
-	<div class="jumbotron jumbotron-fluid" style="background-image: url('https://source.unsplash.com/collection/<%= @hello[@any] %>')" >
-		<% @any = (@any + 1) %10 %>
-	  <div class="container">
+		<% @any = 0 %>
+		<% @trips.each do |trip| %>
 
-	  	<div class="tripName-container">
-				<h1 class="display-4"><%= link_to trip.name, trip %></h1>
+		<div class="indvTrip-container">
+			<div class="jumbotron jumbotron-fluid" style="background-image: url('https://source.unsplash.com/collection/<%= @hello[@any] %>')" >
+				<% @any = (@any + 1) %10 %>
+			  <div class="container">
+
+			  	<div class="tripName-container">
+						<h1 class="display-4"><%= link_to trip.name, trip %></h1>
+					</div>
+
+					<div class="days-container">
+						<% days_left = (trip.start_date - Date.today).to_i
+						if days_left <= 0 %>
+							<p class="lead">ITS TRIP TIME</p>
+						<% else %>
+							<p class="lead">Days Left: <%= days_left %></p>
+						<% end %>
+					</div>
+
+			  </div>
+
+			  <div class="edit-container">
+			  	<%= link_to image_tag("icons/pencil.png", class: "icons"), edit_trip_path(trip) %>
+			  </div>
+
+			  <div class="delete-container">
+			  	<%= link_to image_tag("icons/delete.png", class: "icons"), trip, method: :delete, data: { confirm: 'Are you sure?' } %>
+			  </div>
 			</div>
-
-			<div class="days-container">
-				<% days_left = (trip.start_date - Date.today).to_i
-				if days_left <= 0 %>
-					<p class="lead">ITS TRIP TIME</p>
-				<% else %>
-					<p class="lead">Days Left: <%= days_left %></p>
-				<% end %>
-			</div>
-
-	  </div>
-
-	  <div class="edit-container">
-	  	<%= link_to image_tag("icons/pencil.png", class: "icons"), edit_trip_path(trip) %>
-	  </div>
-
-	  <div class="delete-container">
-	  	<%= link_to image_tag("icons/delete.png", class: "icons"), trip, method: :delete, data: { confirm: 'Are you sure?' } %>
-	  </div>
-	</div>
-
+		</div>
+		<% end %>   <!-- end of for loop -->
 	<% end %>
 
 </div>

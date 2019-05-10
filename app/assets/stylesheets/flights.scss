@@ -10,6 +10,13 @@ div {
 	display: flex;
 	flex-direction: row;
 
+	h2 {
+		color: black;
+		font-family: 'Pompiere', cursive;
+		font-weight: 900;
+		font-size: 35px;
+	}
+
 	h2, img {
 		margin-right: 20px;
 	}
@@ -17,6 +24,29 @@ div {
 
 .airline-container h4 {
 	margin-left: 15px;
+	font-family: 'Pompiere', cursive;
+	font-weight: 900;
+	font-size: 35px;
+}
+
+.flightDetails-container {
+	h2 {
+		font-family: 'PT Sans Narrow', sans-serif;
+		font-size: 40px;
+		font-weight: 700;
+	}
+
+	h3 {
+		font-family: 'Pompiere', cursive;
+		font-size: 40px;
+		font-weight: 900;
+	}
+
+	h5 {
+		font-family: 'PT Sans Narrow', sans-serif;
+		font-size: 25px;
+		font-weight: 700;
+	}
 }
 
 .details-container {
@@ -28,7 +58,7 @@ div {
 }
 
 .departure-container {
-	margin-bottom: 20px;
+	margin-bottom: 30px;
 }
 
 .date-container, .time-container {
@@ -37,4 +67,23 @@ div {
 
 #addflight {
 	margin-bottom: 20px;
+}
+
+#accordionExample {
+	button.btn.btn-link {
+		text-decoration: none;
+	}
+	.iconHeader-container {
+		img.icons {
+			margin: 0 -10px 0 18px;
+		}
+	}
+}
+
+.card-header {
+	background-color: #CEA0AE;
+}
+
+.card-body {
+//	background-color: #EBE9E9;
 }

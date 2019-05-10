@@ -5,8 +5,8 @@
 .jumbotron {
 	background-size: cover;
 	border-radius: 20px;
+	margin-bottom: 0 !important;
 }
-
 
 
 .optionMain-container {
@@ -51,11 +51,19 @@
 	h1 {
 		padding: 10px;
 		font-weight: bold;
+		border-bottom: none;
 	}
 }
 
 .jumbotron.jumbotron-fluid {
   position: relative;
+}
+
+.indvTrip-container {
+	border: 3px solid #EBE9E9;
+	border-radius: 25px;
+	padding: 5px;
+	margin-bottom: 10px;
 }
 
 .delete-container {
@@ -78,7 +86,7 @@
 		width: 49%;
 
 		h2 {
-			font-family: 'Pompiere', cursive;
+			font-family: 'PT Sans Narrow', sans-serif;
 			font-weight: bold;
 			font-size: 45px;
 		}
