@@ -35,12 +35,18 @@ div {
 		font-size: 45px;
 		font-weight: 900;
 		border-bottom: 2px solid #EBE9E9;
-		margin-bottom: 20px;
+		margin-bottom: 15px;
 	}
 
-	h3, h4 {
+	h3 {
 		font-family: 'Pompiere', cursive;
 		font-size: 40px;
+		font-weight: 900;
+	}
+
+	h4 {
+		font-family: 'Pompiere', cursive;
+		font-size: 33px;
 		font-weight: 900;
 	}
 
@@ -60,7 +66,7 @@ div {
 }
 
 .departure-container {
-	margin-bottom: 30px;
+	margin-bottom: 35px;
 }
 
 .date-container, .time-container {

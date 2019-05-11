@@ -1,30 +1,34 @@
 class ExpensesController < ApplicationController
 
   def index
+    @trips = Trip.all
     @trip = Trip.find(params[:trip_id])
     @expenses = Expense.all.where(trip_id: @trip)
     @categories =Category.all
     @spend = @expenses.sum(:amount)
     @paid = @expenses.where(:spent => true).sum(:amount)
     @unpaid = @expenses.where(:spent => false).sum(:amount)
-
+    @budget = @trip.budget
     #@test = Category.all.map{|category| category.expense}.sum(:amount)
-    # byebug
      @column = @expenses.group(:category_id).sum(:amount)
-     # p @column.keys
-     # p @column.values
      @columnChart = {}
      @column.keys.each_with_index do |column, index|
       @categories.each do |category|
         if column === category.id
-          # p category.name
           @columnChart[category.name] = @column.values[index]
         end
       end
      end
-     # p @newObjs
 
   end
+
+  def index2
+    @trips = Trip.all
+    @trip = Trip.find(params[:trip_id])
+    @expenses = Expense.all.where(trip_id: @trip)
+    @categories =Category.all
+  end
+
 
   def show
     @expenses = Expense.all
@@ -62,6 +66,18 @@ class ExpensesController < ApplicationController
     redirect_to expenses_url
   end
 
+  def paidTick
+    @trip = Trip.find(params[:trip_id])
+    @expense = Expense.find(params[:id])
+
+    if @expense.spent == false
+      then @expense.spent = true
+    else @expense.done = false
+    end
+    @expense.save
+    redirect_to expenses_url
+  end
+
   def destroy
     @expense = Expense.find(params[:id])
 
@@ -71,7 +87,7 @@ class ExpensesController < ApplicationController
 
   private
     def expense_params
-      params.require(:expense).permit(:details, :amount, :trip_id, :spent, :category_id)
+      params.require(:expense).permit(:details, :amount, :trip_id, :spent, :category_id,)
     end
 
 end
