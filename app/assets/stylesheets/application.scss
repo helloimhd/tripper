@@ -12,22 +12,12 @@
  *
  *
  *= require bootstrap-toggle
- *= require flatpickr
- *= require flatpickr/material_red
  */
 
  @import "bootstrap";
  @import "trips";
  @import "flights";
  @import "expenses";
-
- // body {
- // 	background-image: url("main-background.jpg");
- // 	background-position: center;
- //  background-repeat: no-repeat;
- //  background-size: cover;
- //  position: relative;
- // }
 
  body {
  	//background-color: #F6FFF8;

@@ -21,7 +21,7 @@
 //= require Chart.bundle
 //= require chartkick
 
-//= require flatpickr
+
 
 
 console.log("test")

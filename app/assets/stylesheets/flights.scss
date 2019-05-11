@@ -32,11 +32,13 @@ div {
 .flightDetails-container {
 	h2 {
 		font-family: 'PT Sans Narrow', sans-serif;
-		font-size: 40px;
-		font-weight: 700;
+		font-size: 45px;
+		font-weight: 900;
+		border-bottom: 2px solid #EBE9E9;
+		margin-bottom: 20px;
 	}
 
-	h3 {
+	h3, h4 {
 		font-family: 'Pompiere', cursive;
 		font-size: 40px;
 		font-weight: 900;
