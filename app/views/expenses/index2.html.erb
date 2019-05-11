@@ -1,71 +1,77 @@
-<div class="container">
-<p id="notice"><%= notice %></p>
-<br>
 <h1><%= @trip.name %></h1>
-<br>
-<%= link_to image_tag("icons/addexpense.png", class: "icons", title:"Add Expense"), new_expense_path %>
-<%=  link_to image_tag("icons/logout.png", class: "icons",title:"Log Out"), destroy_user_session_url, method: :delete %>
-<%= link_to image_tag("icons/back.png", class: "icons-trips",title:"Back"), expenses_path %>
-<br>
-<br>
-<h4> Paid</h4>
-<table class="table table-sm table-hover">
-  <thead class="thead-dark">
-	<tr>
-	  <th scope="col">Details</th>
-	  <th scope="col">Amount</th>
-	  <th scope="col">Category</th>
-	  <th colspan="3"></th>
-	</tr>
-  </thead>
+	<div class="container">
 
-  <tbody>
-	<% @expenses.each do |expense| %>
-		<%if expense.spent == true %>
-	  <tr>
-		<td scope="row"><%= expense.details %></td>
-		<td scope="row"><%= number_to_currency(expense.amount, precision:2) %></td>
-		<td scope="row"><%= expense.category.name %></td>
-		<td><%= link_to image_tag("icons/writing.png", class: "icons", title:"Edit"), "/trips/#{@trip.id}/expenses/#{expense.id}/edit" %></td>
-		<td><%= link_to image_tag("icons/delete.png", class: "icons", title:"Delete"), expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-	  </tr>
-	  <%else %>
-	  <p> </p>
-	  <% end %>
-	<% end %>
-  </tbody>
-</table>
-<br>
-<h4> Unpaid</h4>
-<table class="table table-sm table-hover">
-  <thead class="thead-dark">
-	<tr>
-	  <th scope="col">Details</th>
-	  <th scope="col">Amount</th>
-	  <th scope="col">Category</th>
-	  <th colspan="3"></th>
-	</tr>
-  </thead>
+	<div class="iconHeader-container">
+		<%= link_to image_tag("icons/top-up.png", class: "icons-trips", title:"Add Expense"), new_expense_path %>
 
-  <tbody>
-	<% @expenses.each do |expense| %>
-		<%if expense.spent == false %>
-	  <tr>
-		<td scope="row"><%= expense.details %></td>
-		<td scope="row"><%= number_to_currency(expense.amount, precision:2) %></td>
-		<td scope="row"><%= expense.category.name %></td>
-		<td><%= link_to image_tag("icons/writing.png", class: "icons", title:"Edit"), "/trips/#{@trip.id}/expenses/#{expense.id}/edit" %></td>
-		<td><%= link_to image_tag("icons/delete.png", class: "icons", title:"Delete"), expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-		<td><%= link_to image_tag("icons/Paid.png", class: "icons", title:"Paid"), "/trips/#{@trip.id}/expenses/#{expense.id}", method: :put%></td>
-			</div>
+		<div class="homeBye-container">
+			<%= link_to image_tag("icons/house.png", class: "icons-trips"), root_path %>
+			<%= link_to image_tag("icons/exit.png", class: "icons-trips", id: "exit"), destroy_user_session_url, method: :delete %>
 		</div>
-	  </tr>
-	  <%else %>
-	  <p> </p>
-	  <% end %>
-	<% end %>
-  </tbody>
-</table>
-		<footer>
+	</div>
 
-		</footer>
+	<br />
+
+	<h4> Paid</h4>
+	<table class="table table-sm table-hover">
+	  <thead class="thead-dark">
+		<tr>
+		  <th scope="col">Details</th>
+		  <th scope="col">Amount</th>
+		  <th scope="col">Category</th>
+		  <th colspan="3"></th>
+		</tr>
+	  </thead>
+
+	  <tbody>
+		<% @expenses.each do |expense| %>
+			<%if expense.spent == true %>
+		  <tr>
+			<td scope="row"><%= expense.details %></td>
+			<td scope="row"><%= number_to_currency(expense.amount, precision:2) %></td>
+			<td scope="row"><%= expense.category.name %></td>
+			<td><%= link_to image_tag("icons/writing.png", class: "icons", title:"Edit"), "/trips/#{@trip.id}/expenses/#{expense.id}/edit" %></td>
+			<td><%= link_to image_tag("icons/delete.png", class: "icons", title:"Delete"), expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		  </tr>
+		  <%else %>
+		  <p> </p>
+		  <% end %>
+		<% end %>
+	  </tbody>
+	</table>
+	<br>
+	<h4> Unpaid</h4>
+	<table class="table table-sm table-hover">
+	  <thead class="thead-dark">
+		<tr>
+		  <th scope="col">Details</th>
+		  <th scope="col">Amount</th>
+		  <th scope="col">Category</th>
+		  <th colspan="3"></th>
+		</tr>
+	  </thead>
+
+	  <tbody>
+		<% @expenses.each do |expense| %>
+			<%if expense.spent == false %>
+		  <tr>
+			<td scope="row"><%= expense.details %></td>
+			<td scope="row"><%= number_to_currency(expense.amount, precision:2) %></td>
+			<td scope="row"><%= expense.category.name %></td>
+			<td><%= link_to image_tag("icons/writing.png", class: "icons", title:"Edit"), "/trips/#{@trip.id}/expenses/#{expense.id}/edit" %></td>
+			<td><%= link_to image_tag("icons/delete.png", class: "icons", title:"Delete"), expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			<td><%= link_to image_tag("icons/Paid.png", class: "icons", title:"Paid"), "/trips/#{@trip.id}/expenses/#{expense.id}", method: :put%></td>
+		  </tr>
+		  <%else %>
+		  <p> </p>
+		  <% end %>
+		<% end %>
+	  </tbody>
+	</table>
+
+	<br />
+
+	<footer>
+		<%= link_to image_tag("icons/back.png", class: "icons-trips", title:"Back"), expenses_path %>
+	</footer>
+</div>

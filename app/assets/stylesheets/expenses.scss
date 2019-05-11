@@ -6,9 +6,44 @@
 	margin-top: 40px;
 }
 
-h6 {
- 	font-family: 'Pacifico', cursive;
- 	font-size: 20px;
- 	text-align: right;
- 	margin: 5px;
+h4 {
+	font-family: 'PT Sans Narrow', sans-serif;
+	font-weight: 900;
+	font-size: 45px;
+}
+
+th {
+	font-family: 'PT Sans Narrow', sans-serif;
+	font-weight: 900;
+	font-size: 26px;
+}
+
+td {
+	font-family: 'Pompiere', cursive;
+	font-weight: 900;
+	font-size: 22px;
+}
+
+#expenses {
+	h6 {
+	 	font-family: 'Pompiere', cursive;
+	 	font-weight: 900;
+	 	font-size: 30px;
+	 	text-align: right;
+	 	margin: 5px;
+	 }
+
+	h5 {
+		font-family: 'PT Sans Narrow', sans-serif;
+		font-size: 30px;
+		font-weight: 900;
+		text-align: right;
+		margin: 5px;
+	}
+
+}
+
+
+ #expenseList {
+ 	margin-left: -80px;
  }

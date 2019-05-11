@@ -4,6 +4,7 @@ require 'json'
 require 'airports'
 
 class FlightsController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     @trip = Trip.find(params[:trip_id])

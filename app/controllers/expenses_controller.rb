@@ -1,4 +1,5 @@
 class ExpensesController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     @trips = Trip.all
@@ -53,7 +54,7 @@ class ExpensesController < ApplicationController
     @expense = Expense.new(expense_params)
 
     if @expense.save
-        redirect_to trips_url
+        redirect_to expenses_url
     else
       render 'new'
     end
@@ -75,7 +76,7 @@ class ExpensesController < ApplicationController
     else @expense.done = false
     end
     @expense.save
-    redirect_to expenses_url
+    redirect_to expenses_details_path
   end
 
   def destroy
