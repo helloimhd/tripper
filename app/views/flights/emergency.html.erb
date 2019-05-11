@@ -1,0 +1,98 @@
+<h1><%= image_tag("icons/siren.png", class: "icons-trips", title: "Emergency!") %></h1>
+
+<div class="container">
+
+	<div class="accordion" id="accordionExample">
+		<% @contacts.each_with_index do |contact, index|%>
+	  <div class="card">
+	    <div class="card-header" id="heading<%= index %>">
+	      <h2 class="mb-0">
+	        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse<%= index %>" aria-expanded="false" aria-controls="collapseOne">
+	        	<div class="destination-container">
+	        		<h2><%= contact[:iataCode_from] %></h2>
+	        		<%= image_tag("icons/black-plane.png", class: "icons") %>
+	        		<h2><%= contact[:iataCode_to] %></h2>
+	        	</div>
+	        </button>
+	      </h2>
+	    </div>
+
+	    <div id="collapse<%= index %>" class="collapse" aria-labelledby="heading<%= index %>" data-parent="#accordionExample">
+	      <div class="card-body">
+	      	<div class="numberDetails-container">
+	      		<div class="departure-container">
+		      		<h2><%= contact[:from] %></h2>
+
+		      		<div class="details-container">
+		      			<div class="container">
+		      				<div class="row">
+			      				<div class="col-6">
+				      				<h5>Ambulance</h5>
+				      				<h3><%= contact[:ambulance_from].empty?? "NA":contact[:ambulance_from] %></h3>
+				      			</div>
+
+				      			<div class="col-6">
+				      				<h5>Police</h5>
+				      				<h3><%= contact[:police_from].empty?? "NA":contact[:police_from] %></h3>
+				      			</div>
+				      		</div>
+				      		<br />
+				      		<div class="row">
+				      			<div class="col-6">
+				      				<h5>Fire</h5>
+				      				<h3><%= contact[:fire_from].empty?? "NA":contact[:fire_from] %></h3>
+				      			</div>
+
+				      			<div class="col-6">
+				      				<h5>Dispatch</h5>
+				      				<h3><%= contact[:dispatch_from].empty?? "NA":contact[:dispatch_from] %></h3>
+				      			</div>
+				      		</div>
+		      			</div>
+		      		</div>
+		      	</div>
+
+		      	<div class="arrival-container">
+		      		<h2><%= contact[:to] %></h2>
+
+		      		<div class="details-container">
+		      			<div class="container">
+		      				<div class="row">
+			      				<div class="col-6">
+				      				<h5>Ambulance</h5>
+				      				<h3><%= contact[:ambulance_to].empty?? "NA":contact[:ambulance_to] %></h3>
+				      			</div>
+
+				      			<div class="col-6">
+				      				<h5>Police</h5>
+				      				<h3><%= contact[:police_to].empty?? "NA":contact[:police_to] %></h3>
+				      			</div>
+			      			</div>
+			      			<br />
+			      			<div class="row">
+				      			<div class="col-6">
+				      				<h5>Fire</h5>
+				      				<h3><%= contact[:fire_to].empty?? "NA":contact[:fire_to] %></h3>
+				      			</div>
+
+				      			<div class="col-6">
+				      				<h5>Dispatch</h5>
+				      				<h3><%= contact[:dispatch_to].empty?? "NA":contact[:dispatch_to] %></h3>
+				      			</div>
+				      		</div>
+		      			</div>
+		      		</div>
+	      		</div>
+	      	</div>
+	      </div>
+	    </div>
+	  </div>
+	  <% end %>
+	</div>  <!-- end of accordion -->
+
+	<br />
+	<footer>
+		<%= link_to image_tag("icons/back.png", class: "icons-trips"), @trip %>
+	</footer>
+
+</div>

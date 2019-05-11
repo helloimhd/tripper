@@ -39,5 +39,7 @@ Rails.application.routes.draw do
 
   delete '/trips/:trip_id/flights/:id' => 'flights#destroy'
 
+  get 'trips/:trip_id/emergency' => 'flights#emergency' , as: 'emergency'
+
 
 end

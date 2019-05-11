@@ -29,7 +29,7 @@ div {
 	font-size: 35px;
 }
 
-.flightDetails-container {
+.flightDetails-container, .numberDetails-container {
 	h2 {
 		font-family: 'PT Sans Narrow', sans-serif;
 		font-size: 45px;
@@ -69,7 +69,7 @@ div {
 	margin-bottom: 35px;
 }
 
-.date-container, .time-container {
+.date-container, .time-container, .numbers-container {
 	margin: 20px;
 }
 
