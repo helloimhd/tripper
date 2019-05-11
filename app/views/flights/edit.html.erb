@@ -1,21 +1,21 @@
 <h1>Edit Flight</h1>
 
 <div class="container">
-<%= form_with scope: :flight, model: @flight, local: true do |form| %>
+<%= form_with scope: :flight, model: @flight, html: { autocomplete: "off" }, local: true do |form| %>
 
 	<div class="form-row">
-		<div class="col-8 col-lg-6">
+		<div class="col-6 col-lg-6">
 			<label>Airline</label>
-			<select class="form-control form-control-lg" name="flight[airline_code]">
-				<option selected="<%= @airline_name %>" value="<%= @flight.airline_code %>"><%= @airline_name %></option>
+			<%= form.text_field :airline_code, list: "airlines", class: "form-control form-control-lg" %>
+				<datalist id="airlines">
 				<%= @responses.each do |response| %>
 					<option value=<%= response["id"] %>><%= response["name"] %></option>
 				<% end %>
-			</select>
+			</datalist>
 		</div>
 
-		<div class="col-4 col-lg-6">
-			<label>Flight Number</label>
+		<div class="col-6 col-lg-6">
+			<label>Flight No.</label>
 			<%= form.text_field :flight_no, class: "form-control form-control-lg" %>
 		</div>
 
@@ -24,24 +24,24 @@
 	<br />
 
 	<div class="form-row">
-		<div class="col-12 col-lg-6">
+		<div class="col-6 col-lg-6">
 			<label>From</label>
-			<select class="form-control form-control-lg" name="flight[from]">
-				<option selected="<%= @from %>" value="<%= @flight.from %>"><%= @from %></option>
+			<%= form.text_field :from, list: "fromAirport", class: "form-control form-control-lg" %>
+			<datalist id="fromAirport">
 				<%= @airports.each do |airport| %>
 					<option value="<%= airport.iata %>"><%= airport.name %></option>
 				<% end %>
-			</select>
+			</datalist>
 		</div>
 
-		<div class="col-12 col-lg-6">
+		<div class="col-6 col-lg-6">
 			<label>To</label>
-			<select class="form-control form-control-lg" name="flight[to]">
-				<option selected="<%= @to %>" value="<%= @flight.to %>"><%= @to %></option>
+			<%= form.text_field :to, list: "toAirport", class: "form-control form-control-lg" %>
+			<datalist id="toAirport">
 				<%= @airports.each do |airport| %>
 					<option value="<%= airport.iata %>"><%= airport.name %></option>
 				<% end %>
-			</select>
+			</datalist>
 		</div>
 	</div>
 
@@ -54,7 +54,7 @@
 		</div>
 
 		<div class="col-5 col-lg-6">
-			<label>Departure Time</label>
+			<label>Time</label>
 			<%= form.time_field :dept_time, class: "form-control form-control-lg" %>
 		</div>
 	</div>
@@ -68,7 +68,7 @@
 		</div>
 
 		<div class="col-5 col-lg-6">
-			<label>Arrival Time</label>
+			<label>Time</label>
 			<%= form.time_field :arr_time, class: "form-control form-control-lg" %>
 		</div>
 	</div>

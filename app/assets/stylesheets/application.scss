@@ -11,6 +11,7 @@
  * It is generally better to create a new file per style scope.
  *
  *
+ *= require bootstrap-toggle
  */
 
  @import "bootstrap";
@@ -18,24 +19,20 @@
  @import "flights";
  @import "expenses";
 
- // body {
- // 	background-image: url("main-background.jpg");
- // 	background-position: center;
- //  background-repeat: no-repeat;
- //  background-size: cover;
- //  position: relative;
- // }
-
  body {
  	//background-color: #F6FFF8;
+
+ 	 h1 {
+	 	font-family: 'Chelsea Market', cursive;
+	 	font-size: 70px;
+	 	text-align: center;
+	 	margin: 50px;
+	 	border-bottom: 3px solid #EBE9E9;
+	 	padding-bottom: 15px;
+	 }
  }
 
- h1 {
- 	font-family: 'Pacifico', cursive;
- 	font-size: 70px;
- 	text-align: center;
- 	margin: 50px;
- }
+
 
  #to {
  	text-align: center;
@@ -52,8 +49,24 @@
   height:60px;
  }
 
+ .iconHeader-container {
+ 	display: flex;
+ 	flex-direction: row;
+ 	justify-content: space-between;
+
+ 	#exit {
+ 		margin-left: 10px;
+ 	}
+ }
+
  a {
  	color: black;
+ 	text-decoration:none;
+ }
+
+ a:active {
+ 	text-decoration: none;
+ 	color: inherit;
  }
 
  .buttons {
@@ -61,9 +74,33 @@
  	background-color: #684551;
  	border: none;
  	color: #EBE9E9;
+ 	font-family: 'Smythe', cursive;
  	font-size: 25px;
+ 	font-weight: 900;
  	padding: 5px 15px;
  }
+
+ label {
+ 	font-family: 'PT Sans Narrow', sans-serif;
+ 	font-size: 30px;
+ 	font-weight: 900;
+ }
+
+ input[type="text"], input[type="date"], input[type="time"], #selectInput {
+ 	font-family: 'PT Sans Narrow', sans-serif;
+ 	font-weight: 900;
+ 	font-size: 20px;
+}
+
+.toggle.btn.btn-success, .toggle.btn.btn-danger {
+	margin-top: 30px;
+
+	label {
+		font-size: 20px;
+	}
+}
+
+
 
  @media only screen and (max-width: 600px) {
   h1 {

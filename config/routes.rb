@@ -13,11 +13,11 @@ Rails.application.routes.draw do
   post '/trips/:trip_id/todos' => 'todos#create'
   get '/trips/:trip_id/todos/:id' => 'todos#show', as: 'show_todo'
   get '/trips/:trip_id/todos/:id/edit' => 'todos#testing', as: 'edit_todo'
-  patch '/trips/:trip_id/todos/:id' => 'todos#update'
+  post '/trips/:trip_id/todos/:id' => 'todos#update', as: 'update_todo'
   delete '/trips/:trip_id/todos/:id' => 'todos#destroy', as: 'destroy_todo'
 
 
-#################   TRIPS   #######################
+#################   EXPENSES   #######################
   get '/trips/:trip_id/expenses' => 'expenses#index', as: 'expenses'
   get '/trips/:trip_id/expenses/details' => 'expenses#index2', as: 'expenses_details'
   get '/trips/:trip_id/expenses/new' => 'expenses#new', as: 'new_expense'

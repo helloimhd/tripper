@@ -5,6 +5,9 @@ class TripsController < ApplicationController
   # GET /trips.json
   def index
     @trips = Trip.all.where(user_id: current_user.id)
+
+    @hello = [477172, 1501932, 630905, 1567710, 910923, 1319135, 1938188, 333922, 2399591, 4669578]
+
   end
 
   # GET /trips/1
@@ -69,6 +72,6 @@ class TripsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trip_params
-      params.require(:trip).permit(:name, :user_id, :start_date, :end_date)
+      params.require(:trip).permit(:name, :user_id, :start_date, :end_date, :budget)
     end
 end
