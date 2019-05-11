@@ -9,7 +9,7 @@ class FlightsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @trip = Trip.find(params[:trip_id]).order(:start_date)
+    @trip = Trip.find(params[:trip_id])
     @flights = Flight.all.where(trip_id: @trip).order(:dept_date)
   end
 
@@ -117,18 +117,8 @@ class FlightsController < ApplicationController
 
       # push in array
       @contacts.push(@indvContact)
-
-
-
     end
-
-
-
-
   end
-
-
-
 
   private
   def flight_params
