@@ -10,9 +10,11 @@ class FlightsController < ApplicationController
     @flights = Flight.all.where(trip_id: @trip).order(:dept_date)
   end
 
+
   def show
     @flight = Flight.find(params[:id])
   end
+
 
   def new
     data = open('https://api.skypicker.com/airlines').read
@@ -23,8 +25,6 @@ class FlightsController < ApplicationController
     @airports = Airports.all
     @airports = @airports.sort_by{ |e| e.name}
 
-
-    puts "****************************"
     @trip = Trip.find(params[:trip_id])
   end
 
@@ -36,13 +36,13 @@ class FlightsController < ApplicationController
     redirect_to "/trips/#{@flight.trip_id}/flights"
   end
 
+
   def destroy
   @flight = Flight.find(params[:id])
   @flight.destroy
 
   redirect_to "/trips/#{@flight.trip_id}/flights"
   end
-
 
 
   def edit
@@ -78,8 +78,6 @@ class FlightsController < ApplicationController
     @flight.update(flight_params)
     redirect_to "/trips/#{@flight.trip_id}/flights"
   end
-
-
 
 
   private

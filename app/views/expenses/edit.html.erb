@@ -1,6 +1,14 @@
 <h1>Edit Expense</h1>
 
 <div class="container">
+	<div class="iconHeader-container">
+		<div></div>
+
+		<div class="homeBye-container">
+			<%= link_to image_tag("icons/house.png", class: "icons-trips"), root_path %>
+			<%= link_to image_tag("icons/exit.png", class: "icons-trips", id: "exit"), destroy_user_session_url, method: :delete %>
+		</div>
+	</div>
 <%= form_with scope: :expense, model: @expense, local: true do |form| %>
 
 	<input type="hidden" value="<%= @trip.id %>" name="expense[trip_id]"></input>
@@ -34,12 +42,11 @@
 			<%= form.collection_select :category_id, @categories, :id, :name,{prompt: "Select category"}, {class: "form-control form-control-lg"} %>
 		</div>
 
-		<div class="form-group form-check" id="paidCheck">
-			<div class="col-3 col-lg-6">
-				 <%= form.check_box :spent, class: "form-check-input" %>
-				 <label>Paid</label>
-			</div>
+		<div class="col-3 col-lg-6">
+			<label></label>
+			<%= form.check_box :spent, :data => { :toggle => 'toggle', :on => "Paid", :off => "Not Paid", :onstyle => "success", :offstyle => "danger" } %>
 		</div>
+
 	</div>
 
 	<br />
