@@ -1,5 +1,5 @@
 <div class="container">
-	<%= form_with(model: trip, local: true) do |form| %>
+	<%= form_with(model: trip, local: true, html: {autocomplete: "off" }) do |form| %>
 	  <% if trip.errors.any? %>
 	    <div id="error_explanation">
 	      <h2><%= pluralize(trip.errors.count, "error") %> prohibited this trip from being saved:</h2>
@@ -17,12 +17,12 @@
 		<div class="form-row">
 			<div class="col-8">
 				<label>Name</label>
-				<%= form.text_field :name, class: "form-control form-control-lg" %>
+				<%= form.text_field :name, class: "form-control form-control-lg", placeholder: "Trip Name" %>
 			</div>
 
 			<div class="col-4">
 				<label>Budget</label>
-				<%= form.text_field :budget, class: "form-control form-control-lg" %>
+				<%= form.text_field :budget, class: "form-control form-control-lg", placeholder: "$" %>
 			</div>
 
 		</div>

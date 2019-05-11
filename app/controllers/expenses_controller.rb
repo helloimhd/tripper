@@ -64,7 +64,7 @@ class ExpensesController < ApplicationController
     @expense = Expense.find(params[:id])
 
     @expense.update(expense_params)
-    redirect_to expenses_url
+    redirect_to "/trips/#{@expense.trip_id}/expenses/details"
   end
 
   def paidTick
@@ -81,9 +81,9 @@ class ExpensesController < ApplicationController
 
   def destroy
     @expense = Expense.find(params[:id])
-
     @expense.destroy
-    redirect_to expenses_url
+
+    redirect_to "/trips/#{@expense.trip_id}/expenses/details"
   end
 
   private

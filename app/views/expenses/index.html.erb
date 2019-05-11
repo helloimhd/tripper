@@ -1,73 +1,84 @@
 <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
 
-<h1><%= @trip.name %></h1>
+<h1>Expenses</h1>
+
 
 <div class="container">
 
-	<div class="iconHeader-container">
-		<%= link_to image_tag("icons/top-up.png", class: "icons-trips", title:"Add Expense"), new_expense_path %>
-		<%= link_to image_tag("icons/file.png", class: "icons-trips", title:"Expense List", id: "expenseList"), expenses_details_path %>
+		<div class="iconHeader-container">
+			<% if @expenses.empty? %>
+				<div></div>
+			<% else %>
+				<%= link_to image_tag("icons/top-up.png", class: "icons-trips", title:"Add Expense"), new_expense_path %>
+				<%= link_to image_tag("icons/expensesList.png", class: "icons-trips", title:"Expense List", id: "expenseList"), expenses_details_path %>
+			<% end %>
 
-		<div class="homeBye-container">
-			<%= link_to image_tag("icons/house.png", class: "icons-trips"), root_path %>
-			<%= link_to image_tag("icons/exit.png", class: "icons-trips", id: "exit"), destroy_user_session_url, method: :delete %>
-		</div>
-	</div>
-
-	<br />
-	<br />
-
-	<div class="container" id="expenses">
-		<div class="row justify-content-center">
-			<div class="col-xs">
-				<h5>Paid: </h5>
-				<h5>Unpaid: </h5>
-				<h6>---------</h6>
-				<h5>Total: </h5>
-				<h6>---------</h6>
-				<h5 style="color: blue;">Budget:
-				<h6>---------</h6>
-				<h5>Variance: </h5>
-			</div>
-			<div class="col-xs">
-				<h6><%= number_to_currency(@paid, precision:0) %></h6>
-				<h6><%= number_to_currency(@unpaid, precision:0) %></h6>
-				<h6>---------</h6>
-				<h6><%= number_to_currency(@spend, precision:0) %></h6>
-				<h6>---------</h6>
-				<h6 style="color: blue;"><%= number_to_currency(@budget, precision:0) %>
-				<h6>---------</h6>
-					<% if ((@budget-@spend)<0) %>
-							<h6 style="color: red;"><%= number_to_currency((@budget - @spend), precision:0) %>
-							<% else %>
-							<h6><%= number_to_currency((@budget - @spend), precision:0) %>
-							<% end %>
+			<div class="homeBye-container">
+				<%= link_to image_tag("icons/house.png", class: "icons-trips"), root_path %>
+				<%= link_to image_tag("icons/exit.png", class: "icons-trips", id: "exit"), destroy_user_session_url, method: :delete %>
 			</div>
 		</div>
-	</div>
-	<br>
-	<br>
-		<div class="col-xs-3">
-					<%= column_chart @columnChart,
-					title: "",
-					# colors:["#402E2A"],
-					prefix: '$',
-					thousands: ","
-				%>
-		</div>
-	<br>
 
-		<div class="col-xs-3">
-					<%= bar_chart stackChart,
-					title: "",
-					# colors:["black","blue","lightblue","lime"],
-					# ["#402E2A","#684551","#CEA0AE","#D5B0AC"],
-					prefix: '$',
-					thousands: ",",
-					legend: "bottom"
-				%>
-		</div>
 	<br />
+
+	<% if @expenses.empty? %>
+		<div class="addAlert">
+			<h2>Click <%= link_to image_tag("icons/top-up.png", class: "icons-trips", title:"Add Expense"), new_expense_path %> to add!</h2>
+		</div>
+	<% else %>
+
+		<div class="container" id="expenses">
+			<div class="row justify-content-center">
+				<div class="col-xs">
+					<h5>Paid: </h5>
+					<h5>Unpaid: </h5>
+					<h6>---------</h6>
+					<h5>Total: </h5>
+					<h6>---------</h6>
+					<h5 style="color: blue;">Budget:
+					<h6>---------</h6>
+					<h5>Variance: </h5>
+				</div>
+				<div class="col-xs">
+					<h6><%= number_to_currency(@paid, precision:0) %></h6>
+					<h6><%= number_to_currency(@unpaid, precision:0) %></h6>
+					<h6>---------</h6>
+					<h6><%= number_to_currency(@spend, precision:0) %></h6>
+					<h6>---------</h6>
+					<h6 style="color: blue;"><%= number_to_currency(@budget, precision:0) %>
+					<h6>---------</h6>
+						<% if ((@budget-@spend)<0) %>
+								<h6 style="color: red;"><%= number_to_currency((@budget - @spend), precision:0) %>
+								<% else %>
+								<h6><%= number_to_currency((@budget - @spend), precision:0) %>
+								<% end %>
+				</div>
+			</div>
+		</div>
+		<br>
+		<br>
+			<div class="col-xs-3">
+						<%= column_chart @columnChart,
+						title: "",
+						# colors:["#402E2A"],
+						prefix: '$',
+						thousands: ","
+					%>
+			</div>
+		<br>
+
+			<div class="col-xs-3">
+						<%= bar_chart stackChart,
+						title: "",
+						# colors:["black","blue","lightblue","lime"],
+						# ["#402E2A","#684551","#CEA0AE","#D5B0AC"],
+						prefix: '$',
+						thousands: ",",
+						legend: "bottom"
+					%>
+			</div>
+		<br />
+	<% end %>
 
 	<footer>
 		<%= link_to image_tag("icons/back.png", class: "icons-trips"), @trip %>
