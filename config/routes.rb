@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get '/trips/:trip_id/todos/new' => 'todos#new', as: 'new_todo'
   post '/trips/:trip_id/todos' => 'todos#create'
   get '/trips/:trip_id/todos/:id' => 'todos#show', as: 'show_todo'
-  get '/trips/:trip_id/todos/:id/edit' => 'todos#testing', as: 'edit_todo'
+  get '/trips/:trip_id/todos/:id/edit' => 'todos#edit', as: 'edit_todo'
   post '/trips/:trip_id/todos/:id' => 'todos#update', as: 'update_todo'
   delete '/trips/:trip_id/todos/:id' => 'todos#destroy', as: 'destroy_todo'
   put '/trips/:trip_id/todos/:id' => 'todos#updateCompleted'

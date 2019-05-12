@@ -22,7 +22,7 @@ class TodosController < ApplicationController
 		@categories = Category.all
 	end
 
-    def create
+  def create
     @todo = ToDo.new(todo_params)
 
       if @todo.save
@@ -53,11 +53,11 @@ class TodosController < ApplicationController
     	@todo = ToDo.find(params[:id])
 
 
-    if @todo.done == true 
-    	then @todo.done =false 
+    if @todo.done == true
+    	then @todo.done =false
 
 
-    else @todo.done = true 
+    else @todo.done = true
 
     end
   	@todo.save

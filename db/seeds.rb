@@ -9,18 +9,8 @@
 
 
 Category.create(name: 'Activities')
-Category.create(name: 'Food')
-Category.create(name: 'Tasks')
-Category.create(name: 'Hotel')
 Category.create(name: 'Flight')
+Category.create(name: 'Food')
+Category.create(name: 'Hotel')
+Category.create(name: 'Tasks')
 Category.create(name: 'Miscellaneous')
-
-
-
-
-
-
-
-
-ToDo.create(details: 'universal', date: Date.parse('14/07/2019'), category: 1, trip: 1)
-ToDo.create(details: 'GBB', date: Date.parse('21/05/2019'), category: 2, trip: 2)
