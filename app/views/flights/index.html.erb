@@ -1,11 +1,24 @@
 <h1>Flights</h1>
 
 <div class="container">
+		<div class="iconHeader-container">
+			<% if @flights.empty? %>
+				<div></div>
+			<% else %>
+				<%= link_to image_tag("icons/addFlight.png", id: "addflight", class: "icons-trips"), new_flight_path %>
+			<% end %>
 
-		<%= link_to image_tag("icons/flightsch.png", id: "addflight", class: "icons-trips"), new_flight_path %>
+			<div class="homeBye-container">
+				<%= link_to image_tag("icons/house.png", class: "icons-trips"), root_path %>
+				<%= link_to image_tag("icons/exit.png", class: "icons-trips", id: "exit"), destroy_user_session_url, method: :delete %>
+			</div>
+		</div>
 
 		<% if @flights.empty? %>
-			<h2>Whoops! <br/>You dont have any flights yet~ Click on the icon to add!</h2>
+		<br />
+			<div class="addAlert">
+				<h2>Click <%= link_to image_tag("icons/addFlight.png", id: "addflight", class: "icons-trips", title: "Add Flight"), new_flight_path %> to add flights!</h2>
+			</div>
 		<% else %>
 		<div class="accordion" id="accordionExample">
 		<% @flights.each do |flight| %>
@@ -23,11 +36,20 @@
 	        	<h4><%= flight.airline_code %> <%= flight.flight_no %></h4>
 	        </div>
 	      </h2>
-	      <%= link_to image_tag("icons/writing.png", class: "icons"), "/trips/#{@trip.id}/flights/#{flight.id}/edit" %>
 
-	      <%= link_to image_tag("icons/delete.png", class: "icons"), "/trips/#{@trip.id}/flights/#{flight.id}",
-        method: :delete,
-        data: { confirm: 'Are you sure?' } %>
+	      <div class="iconHeader-container">
+					<div></div>
+
+					<div class="homeBye-container">
+						<%= link_to image_tag("icons/pencil.png", class: "icons"), "/trips/#{@trip.id}/flights/#{flight.id}/edit" %>
+						<%= link_to image_tag("icons/delete.png", class: "icons"), "/trips/#{@trip.id}/flights/#{flight.id}",
+				        method: :delete,
+				        data: { confirm: 'Are you sure?' } %>
+					</div>
+				</div>
+
+
+
 
 	    </div>
 
@@ -36,10 +58,12 @@
 	      	<div class="flightDetails-container">
 	      		<div class="departure-container">
 		      		<h2>Departure</h2>
+		      		<h4><%= Airports.find_by_iata_code(flight.from).name %></h4>
+
 		      		<div class="details-container">
 		      			<div class="date-container">
 		      				<h5>Date</h5>
-		      				<h3><%= flight.dept_date %></h3>
+		      				<h3><%= flight.dept_date.strftime("%d %b %Y") %></h3>
 		      			</div>
 
 		      			<div class="time-container">
@@ -51,10 +75,12 @@
 
 		      	<div class="arrival-container">
 		      		<h2>Arrival</h2>
+		      		<h4><%= Airports.find_by_iata_code(flight.to).name %></h4>
+
 		      		<div class="details-container">
 		      			<div class="date-container">
 		      				<h5>Date</h5>
-		      				<h3><%= flight.arr_date %></h3>
+		      				<h3><%= flight.arr_date.strftime("%d %b %Y") %></h3>
 		      			</div>
 
 		      			<div class="time-container">

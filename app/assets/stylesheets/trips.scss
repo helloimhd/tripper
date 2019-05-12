@@ -3,17 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .jumbotron {
-	// background: #FFAFBD;  /* fallback for old browsers */
-	// background: -webkit-linear-gradient(to right, #ffc3a0, #FFAFBD);  /* Chrome 10-25, Safari 5.1-6 */
-	// background: linear-gradient(to right, #ffc3a0, #FFAFBD); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-	background-image: asset-url('bg.jpg');
 	background-size: cover;
 	border-radius: 20px;
-
-
+	margin-bottom: 0 !important;
 }
-
 
 
 .optionMain-container {
@@ -37,20 +30,40 @@
 }
 
 .days-container {
-	background-color: white;
+	background-color: rgba(255,255,255,0.6);
 	border-radius: 20px;
-	opacity: 0.5;
 
 	p {
 		text-align: center;
-		padding: 10px	;
+		padding: 10px;
+		font-family: 'PT Sans Narrow', sans-serif;
+		font-size: 30px;
 		font-weight: bold;
 		color: black;
 	}
 }
 
+.tripName-container {
+	background-color: rgba(255,255,255,0.6);
+	border-radius: 20px;
+
+
+	h1 {
+		padding: 10px;
+		font-weight: bold;
+		border-bottom: none;
+	}
+}
+
 .jumbotron.jumbotron-fluid {
   position: relative;
+}
+
+.indvTrip-container {
+	border: 3px solid #EBE9E9;
+	border-radius: 25px;
+	padding: 5px;
+	margin-bottom: 10px;
 }
 
 .delete-container {
@@ -71,6 +84,12 @@
 
 	.tripDuration-container {
 		width: 49%;
+
+		h2 {
+			font-family: 'PT Sans Narrow', sans-serif;
+			font-weight: bold;
+			font-size: 45px;
+		}
 	}
 
 	.tripDate-container {
@@ -87,7 +106,9 @@
 		max-width: 66%;
 
 		h4 {
-			font-size: 20px;
+			font-size: 25px;
+			font-family: 'Pompiere', cursive;
+			font-weight: 700;
 		}
 	}
 
@@ -98,6 +119,7 @@
 		h2 {
 			background-color: white;
 			font-size: 50px;
+			font-weight: 900;
 		}
 	}
 }

@@ -20,13 +20,14 @@ Rails.application.routes.draw do
 
 #################   EXPENSES   #######################
   get '/trips/:trip_id/expenses' => 'expenses#index', as: 'expenses'
+  get '/trips/:trip_id/expenses/details' => 'expenses#index2', as: 'expenses_details'
   get '/trips/:trip_id/expenses/new' => 'expenses#new', as: 'new_expense'
   post '/trips/:trip_id/expenses' => 'expenses#create'
   get '/trips/:id/expenses/:id' => 'expenses#show' , as: 'expense'
    get '/trips/:trip_id/expenses/:id/edit' => 'expenses#edit', as: 'edit_expense'
   patch '/trips/:trip_id/expenses/:id' => 'expenses#update'
   delete '/trips/:trip_id/expenses/:id' => 'expenses#destroy'
-
+  put '/trips/:trip_id/expenses/:id' => 'expenses#paidTick'
 
 ###################   FLIGHTS   ##################
   get '/trips/:trip_id/flights' => 'flights#index', as: 'flights'
@@ -38,6 +39,8 @@ Rails.application.routes.draw do
   patch '/trips/:trip_id/flights/:id' => 'flights#update'
 
   delete '/trips/:trip_id/flights/:id' => 'flights#destroy'
+
+  get 'trips/:trip_id/emergency' => 'flights#emergency' , as: 'emergency'
 
 
 end
