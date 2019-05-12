@@ -73,9 +73,9 @@
 		      <td><%= link_to image_tag("icons/delete.png", class: "icons"), "/trips/#{@trip.id}/todos/#{todo.id}", method: :delete, data: { confirm: 'Are you sure?' } %>
 
 		      <% if todo.done %>
-		      <td><%= button_to '    ', "/trips/#{@trip.id}/todos/#{todo.id}",class: "btn btn-danger", method: :put, data: {confirm: 'Are you sure?'} %></td>
+		      <td><%= link_to image_tag("icons/todoCheck.png", class: "icons"), "/trips/#{@trip.id}/todos/#{todo.id}", method: :put, data: {confirm: 'Are you sure?'} %></td>
 		      <% else %>
-		      <td><%= button_to '    ', "/trips/#{@trip.id}/todos/#{todo.id}",class: "btn btn-success", method: :put, data: {confirm: 'Are you sure?'} %></td>
+		      <td><%= link_to image_tag("icons/notCheck.png", class: "icons"), "/trips/#{@trip.id}/todos/#{todo.id}", method: :put, data: {confirm: 'Are you sure?'} %></td>
 		      <% end %>
 
 
