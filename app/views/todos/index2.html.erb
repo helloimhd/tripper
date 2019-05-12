@@ -1,0 +1,84 @@
+
+<h1> To Do</h1>
+<div class = "container">
+<%= form_with scope: :todo, url: todos_path, local: true do |form| %>
+
+  <input type="hidden" value="<%= @trip.id %>" name="todo[trip_id]"></input>
+
+  <div class="form-row">
+    <div class="col-6 col-lg-6">
+      <label>Trip</label>
+      <input class="form-control form-control-lg" value="<%= @trip.name %>" disabled/>
+    </div>
+  </div>
+
+  <br />
+
+  <div class="form-row">
+    <div class="col-6 col-lg-6">
+      <%= form.label :date %>
+      <%= form.date_field :date, min: @trip.start_date, max: @trip.end_date, class: "form-control form-control-lg" %>
+    </div>
+
+    <div class="col-6 col-lg-6">
+      <%= form.label :category %><br />
+      <%= form.collection_select :category_id, @categories, :id, :name,{prompt: "Category"}, {class: "form-control form-control-lg"} %>
+    </div>
+  </div>
+
+  <br />
+
+  <div class="form-row">
+    <div class="col-12">
+      <%= form.label :details%><br>
+      <%= form.text_field :details, class: "form-control form-control-lg"%>
+    </div>
+  </div>
+
+  <br />
+
+  <button type="submit" class="buttons">Confirm</button>
+  <br>
+  <% end %>
+
+  <br />
+
+
+
+
+	<table class="table table-hover">
+  <thead class="thead-dark">
+
+    <tr>
+      <th scope="col"><%= sortable "date" %></th>
+      <th scope="col"><%= sortable "name", "Category" %></th>
+      <th scope="col"><%= sortable "details" %></th>
+      <th scope="col"><%= link_to "Edit" %></th>
+      <th scope="col"><%= link_to "Delete" %></th>
+      <th scope="col"><%= sortable "done"%></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @todos.each do |todo|%>
+
+
+    <tr>
+      <th scope="row"><%= todo.date %></th>
+      <td><%= todo.category.name %></td>
+      <td><%= todo.details%></td>
+      <td><%= link_to image_tag("icons/writing.png", class: "icons"), "/trips/#{@trip.id}/todos/#{todo.id}/edit" %></td>
+      <td><%= link_to image_tag("icons/delete.png", class: "icons"), "/trips/#{@trip.id}/todos/#{todo.id}", method: :delete, data: { confirm: 'Are you sure?' } %>
+
+      <% if todo.done %>
+      <td><%= button_to '    ', "/trips/#{@trip.id}/todos/#{todo.id}",class: "btn btn-danger", method: :put, data: {confirm: 'Are you sure?'} %></td>
+      <% else %>
+      <td><%= button_to '    ', "/trips/#{@trip.id}/todos/#{todo.id}",class: "btn btn-success", method: :put, data: {confirm: 'Are you sure?'} %></td>
+      <% end %>
+
+
+    </tr>
+    <% end %>
+
+  </tbody>
+</table>
+</div>
