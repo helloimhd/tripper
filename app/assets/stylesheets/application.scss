@@ -133,6 +133,12 @@
 a.todoHead {
 	color: white;
 }
+
+h3 {
+	a {
+		color: red;
+	}
+}
  @media only screen and (max-width: 600px) {
   h1 {
     // color: blue;
