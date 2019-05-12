@@ -1,0 +1,113 @@
+<h1><%= image_tag("icons/siren.png", class: "icons-trips", title: "Emergency!") %></h1>
+
+<div class="container">
+	<div class="iconHeader-container">
+		<div></div>
+		<div class="homeBye-container">
+			<%= link_to image_tag("icons/house.png", class: "icons-trips"), root_path %>
+			<%= link_to image_tag("icons/exit.png", class: "icons-trips", id: "exit"), destroy_user_session_url, method: :delete %>
+		</div>
+	</div>
+
+	<br />
+	<% if @flights.empty? %>
+		<br />
+		<div class="addAlert">
+			<h2>Click <%= link_to image_tag("icons/addFlight.png", id: "addflight", class: "icons-trips", title: "Add Flight"), new_flight_path %> to add flights<br>We will generate the SOS numbers for you!</h2>
+		</div>
+	<% else %>
+	<div class="accordion" id="accordionExample">
+		<% @contacts.each_with_index do |contact, index|%>
+	  <div class="card">
+	    <div class="card-header" id="heading<%= index %>">
+	      <h2 class="mb-0">
+	        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse<%= index %>" aria-expanded="false" aria-controls="collapseOne">
+	        	<div class="destination-container">
+	        		<h2><%= contact[:iataCode_from] %></h2>
+	        		<%= image_tag("icons/black-plane.png", class: "icons") %>
+	        		<h2><%= contact[:iataCode_to] %></h2>
+	        	</div>
+	        </button>
+	      </h2>
+	    </div>
+
+	    <div id="collapse<%= index %>" class="collapse" aria-labelledby="heading<%= index %>" data-parent="#accordionExample">
+	      <div class="card-body">
+	      	<div class="numberDetails-container">
+	      		<div class="departure-container">
+		      		<h2><%= contact[:from] %></h2>
+
+		      		<div class="details-container">
+		      			<div class="container">
+		      				<div class="row">
+			      				<div class="col-6">
+				      				<h5>Ambulance</h5>
+				      				<h3><%= contact[:ambulance_from].empty?? ("NA"):(link_to contact[:ambulance_from], "tel: #{contact[:ambulance_from]}") %></h3>
+				      			</div>
+
+				      			<div class="col-6">
+				      				<h5>Police</h5>
+				      				<h3><%= contact[:police_from].empty?? ("NA"):(link_to contact[:police_from], "tel: #{contact[:police_from]}") %></h3>
+				      			</div>
+				      		</div>
+				      		<br />
+				      		<div class="row">
+				      			<div class="col-6">
+				      				<h5>Fire</h5>
+				      				<h3><%= contact[:fire_from].empty?? ("NA"):(link_to contact[:fire_from], "tel: #{contact[:fire_from]}") %></h3>
+				      			</div>
+
+				      			<div class="col-6">
+				      				<h5>Dispatch</h5>
+				      				<h3><%= contact[:dispatch_from].empty?? ("NA"):(link_to contact[:dispatch_from], "tel: #{contact[:dispatch_from]}") %></h3>
+				      			</div>
+				      		</div>
+		      			</div>
+		      		</div>
+		      	</div>
+
+		      	<div class="arrival-container">
+		      		<h2><%= contact[:to] %></h2>
+
+		      		<div class="details-container">
+		      			<div class="container">
+		      				<div class="row">
+			      				<div class="col-6">
+				      				<h5>Ambulance</h5>
+				      				<h3><%= contact[:ambulance_to].empty?? ("NA"):(link_to contact[:ambulance_to], "tel: #{contact[:ambulance_to]}") %></h3>
+				      			</div>
+
+				      			<div class="col-6">
+				      				<h5>Police</h5>
+				      				<h3><%= contact[:police_to].empty?? ("NA"):(link_to contact[:police_to], "tel: #{contact[:police_to]}") %></h3>
+				      			</div>
+			      			</div>
+			      			<br />
+			      			<div class="row">
+				      			<div class="col-6">
+				      				<h5>Fire</h5>
+				      				<h3><%= contact[:fire_to].empty?? ("NA"):(link_to contact[:fire_to], "tel: #{contact[:fire_to]}") %></h3>
+				      			</div>
+
+				      			<div class="col-6">
+				      				<h5>Dispatch</h5>
+				      				<h3><%= contact[:dispatch_to].empty?? ("NA"):(link_to contact[:dispatch_to], "tel: #{contact[:dispatch_to]}") %></h3>
+				      			</div>
+				      		</div>
+		      			</div>
+		      		</div>
+	      		</div>
+	      	</div>
+	      </div>
+	    </div>
+	  </div>
+	  <% end %>
+	</div>  <!-- end of accordion -->
+	<% end %>
+
+	<br />
+	<footer>
+		<%= link_to image_tag("icons/back.png", class: "icons-trips"), @trip %>
+	</footer>
+
+</div>

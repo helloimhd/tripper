@@ -69,6 +69,13 @@
  	color: inherit;
  }
 
+.links {
+	a {
+		font-family: 'PT Sans Narrow', sans-serif;
+		font-weight: 900px;
+		font-size: 27px;
+	 }
+}
  .buttons {
  	border-radius: 10px;
  	background-color: #684551;
@@ -86,7 +93,7 @@
  	font-weight: 900;
  }
 
- input[type="text"], input[type="date"], input[type="time"], #selectInput {
+ input[type="text"], input[type="date"], input[type="time"], input[type="email"], input[type="password"], #selectInput {
  	font-family: 'PT Sans Narrow', sans-serif;
  	font-weight: 900;
  	font-size: 20px;
@@ -101,6 +108,27 @@
 }
 
 
+.addAlert {
+	h2 {
+		font-family: 'PT Sans Narrow', sans-serif;
+		font-weight: 900;
+		font-size: 40px;
+		text-align: center;
+	}
+}
+
+#deviseButton {
+	font-size: 35px;
+	padding: 0 25px;
+	margin-bottom: 10px;
+}
+
+#resetPassword {
+	font-family: 'PT Sans Narrow', sans-serif;
+	font-weight: 900;
+	font-size: 25px;
+	margin-bottom: 20px;
+}
 
  @media only screen and (max-width: 600px) {
   h1 {

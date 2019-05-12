@@ -51,9 +51,6 @@ GEM
     autoprefixer-rails (9.5.1)
       execjs
     bcrypt (3.1.12)
-    best_in_place (3.0.3)
-      actionpack (>= 3.2)
-      railties (>= 3.2)
     bindex (0.7.0)
     bootsnap (1.4.4)
       msgpack (~> 1.0)
@@ -86,6 +83,10 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.5)
+    countries (3.0.0)
+      i18n_data (~> 0.8.0)
+      sixarm_ruby_unaccent (~> 1.1)
+      unicode_utils (~> 1.4)
     crass (1.0.4)
     devise (4.6.2)
       bcrypt (~> 3.0)
@@ -93,15 +94,15 @@ GEM
       railties (>= 4.1.0, < 6.0)
       responders
       warden (~> 1.2.3)
+    emergency_number (0.3.4)
     erubi (1.8.0)
     execjs (2.7.0)
     ffi (1.10.0)
-    flatpickr_rails (1.1.0)
-      railties (>= 3.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
+    i18n_data (0.8.0)
     io-like (0.3.0)
     jbuilder (2.8.0)
       activesupport (>= 4.2.0)
@@ -196,6 +197,7 @@ GEM
     selenium-webdriver (3.142.0)
       childprocess (>= 0.5, < 2.0)
       rubyzip (~> 1.2, >= 1.2.2)
+    sixarm_ruby_unaccent (1.2.0)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -215,6 +217,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.1.20)
       execjs (>= 0.3.0, < 3)
+    unicode_utils (1.4.0)
     warden (1.2.8)
       rack (>= 2.0.6)
     web-console (3.7.0)
@@ -233,7 +236,6 @@ PLATFORMS
 
 DEPENDENCIES
   airports (~> 1.2.0)
-  best_in_place (~> 3.0.1)
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.3.1)
   bootstrap-toggle-rails
@@ -242,8 +244,9 @@ DEPENDENCIES
   chartkick
   chromedriver-helper
   coffee-rails (~> 4.2)
+  countries
   devise
-  flatpickr_rails
+  emergency_number
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)

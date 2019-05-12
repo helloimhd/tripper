@@ -2,7 +2,11 @@
 
 <div class="container">
 		<div class="iconHeader-container">
-			<%= link_to image_tag("icons/addFlight.png", id: "addflight", class: "icons-trips"), new_flight_path %>
+			<% if @flights.empty? %>
+				<div></div>
+			<% else %>
+				<%= link_to image_tag("icons/addFlight.png", id: "addflight", class: "icons-trips"), new_flight_path %>
+			<% end %>
 
 			<div class="homeBye-container">
 				<%= link_to image_tag("icons/house.png", class: "icons-trips"), root_path %>
@@ -11,7 +15,10 @@
 		</div>
 
 		<% if @flights.empty? %>
-			<h2>Whoops! <br/>You dont have any flights yet~ Click on the icon to add!</h2>
+		<br />
+			<div class="addAlert">
+				<h2>Click <%= link_to image_tag("icons/addFlight.png", id: "addflight", class: "icons-trips", title: "Add Flight"), new_flight_path %> to add flights!</h2>
+			</div>
 		<% else %>
 		<div class="accordion" id="accordionExample">
 		<% @flights.each do |flight| %>

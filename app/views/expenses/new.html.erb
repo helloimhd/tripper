@@ -6,12 +6,12 @@
 		<div></div>
 
 		<div class="homeBye-container">
-			<%= link_to image_tag("icons/house.png", class: "icons-trips"), root_path %>
-			<%= link_to image_tag("icons/exit.png", class: "icons-trips", id: "exit"), destroy_user_session_url, method: :delete %>
+			<%= link_to image_tag("icons/house.png", class: "icons-trips", title: "Trips"), root_path %>
+			<%= link_to image_tag("icons/exit.png", class: "icons-trips", title: "Logout", id: "exit"), destroy_user_session_url, method: :delete %>
 		</div>
 	</div>
 
-<%= form_with scope: :expense, url: expenses_path, local: true do |form| %>
+<%= form_with scope: :expense, url: expenses_path, html: { autocomplete: "off" }, local: true do |form| %>
 
 	<input type="hidden" value="<%= @trip.id %>" name="expense[trip_id]"></input>
 
@@ -27,12 +27,12 @@
 	<div class="form-row">
 		<div class="col-9 col-lg-6">
 			<label>Expenses Details</label>
-			<%= form.text_field :details, class: "form-control form-control-lg" %>
+			<%= form.text_field :details, class: "form-control form-control-lg", placeholder: "Toiletries" %>
 		</div>
 
 		<div class="col-3 col-lg-6">
 			<label>Amount</label>
-			<%= form.number_field :amount, class: "form-control form-control-lg" %>
+			<%= form.number_field :amount, class: "form-control form-control-lg", placeholder: "$" %>
 		</div>
 	</div>
 
