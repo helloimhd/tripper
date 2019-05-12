@@ -22,6 +22,4 @@
 //= require chartkick
 
 
-
-
 console.log("test")

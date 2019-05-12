@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get '/trips/:trip_id/todos/:id/edit' => 'todos#testing', as: 'edit_todo'
   post '/trips/:trip_id/todos/:id' => 'todos#update', as: 'update_todo'
   delete '/trips/:trip_id/todos/:id' => 'todos#destroy', as: 'destroy_todo'
+  put '/trips/:trip_id/todos/:id' => 'todos#updateCompleted'
 
 
 #################   EXPENSES   #######################
