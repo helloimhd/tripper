@@ -24,7 +24,7 @@
 			<%= form.text_field :airline_code, list: "airlines", class: "form-control form-control-lg", placeholder: "Airline Name" %>
 			<datalist id="airlines">
 				<%= @responses.each do |response| %>
-					<option value=<%= response["id"] %>><%= response["name"] %></option>
+					<option value=<%= response["iata"] %>><%= response["name"] %></option>
 				<% end %>
 			</datalist>
 		</div>

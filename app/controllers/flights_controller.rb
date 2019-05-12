@@ -18,10 +18,13 @@ class FlightsController < ApplicationController
   end
 
   def new
-    data = open('https://api.skypicker.com/airlines').read
-    @responses = JSON.parse(data)
+    data = File.read("#{Rails.root}/public/airlines.json")
 
-    @responses = @responses.sort_by{ |e| e["name"]}
+    # data = open('https://api.skypicker.com/airlines').read
+    @responses = JSON.parse(data)
+    p @responses
+
+    @responses = @responses.sort_by{ |e| e[:name]}
 
     @airports = Airports.all
     @airports = @airports.sort_by{ |e| e.name}
