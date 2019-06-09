@@ -23,14 +23,16 @@
   <br />
 
   <button type="submit" class="buttons float-right">Add</button>
-  <br />
-  <br />
+
   <% end %>
-  <br />
+
 
   <% if @todos.empty? %>
   	<div></div>
   <% else %>
+  	<br />
+  	<br />
+  	<br />
 		<table class="table table-sm table-hover table-striped">
 		  <thead class="thead-dark">
 		    <tr>
@@ -45,7 +47,7 @@
 		    <tr>
 		      <td class="text-break"><%= todo.details%></td>
 		      <td><%= link_to image_tag("icons/pencil.png", class: "icons"), "/trips/#{@trip.id}/todos/#{todo.id}/edit" %></td>
-		      <td><%= link_to image_tag("icons/delete.png", class: "icons"), "/trips/#{@trip.id}/todos/#{todo.id}", method: :delete, data: { confirm: 'Are you sure?' } %>
+		      <td><%= link_to image_tag("icons/delete.png", class: "icons"), "/trips/#{@trip.id}/todos/#{todo.id}", method: :delete, data: { confirm: 'Delete to-do?' } %>
 
 		      <% if todo.done %>
 		      	<td><%= link_to image_tag("icons/todoCheck.png", class: "icons"), "/trips/#{@trip.id}/todos/#{todo.id}", method: :put, data: {confirm: 'Undone?'} %></td>
