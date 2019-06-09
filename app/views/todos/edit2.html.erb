@@ -1,0 +1,47 @@
+<h1>Edit Todo</h1>
+
+<div class="container">
+	<%= form_with scope: :todo, url: update_todo_path, local: true do |form| %>
+	<div class="form-row">
+		<div class="col-7 col-lg-6">
+		  <%= form.label :trip %>
+		  <%= form.collection_select :trip_id, @trips, :id, :name, {prompt: "Select trip"}, {class: "form-control form-control-lg"} %>
+		</div>
+	</div>
+
+	<br />
+
+	<div class="form-row">
+		<div class="col-7 col-lg-6">
+			<%= form.label :date %>
+	  	<%= form.date_field :date, min: @trip.start_date, max: @trip.end_date, class: "form-control form-control-lg" %>
+		</div>
+
+		<div class="col-5 col-lg-6">
+			<%= form.label :category %><br />
+	    <%= form.collection_select :category_id, @categories, :id, :name,{prompt: "Category"}, {class: "form-control form-control-lg"} %>
+		</div>
+	</div>
+
+	<br />
+
+	<div class="form-row">
+		<div class="col-12">
+			<%= form.label :details%><br>
+			<%= form.text_field :details, class: "form-control form-control-lg"%>
+		</div>
+	</div>
+
+	<br />
+
+	<button type="submit" class="buttons">Confirm</button>
+	<% end %>
+
+	<br />
+
+	<footer>
+		<%= link_to image_tag("icons/back.png", class: "icons-trips"), todos_path %>
+	</footer>
+
+
+</div>

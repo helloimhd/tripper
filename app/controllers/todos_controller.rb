@@ -4,7 +4,7 @@ class TodosController < ApplicationController
   def index
     @todo = ToDo.new
     @trip = Trip.find(params[:trip_id])
-    @todos = ToDo.all.where(trip_id: @trip)
+    @todos = ToDo.all.where(trip_id: @trip).order(params[:sort])
   end
 
   def show
@@ -16,11 +16,9 @@ class TodosController < ApplicationController
   end
 
   def create
-    puts (todo_params[:trip_id])
     @todo = ToDo.new(todo_params)
 
     if @todo.save
-      puts "kajshakdasdk"
       redirect_to todos_path
     else
       puts "failed"
@@ -30,7 +28,6 @@ class TodosController < ApplicationController
 
   def edit
     @todo = ToDo.find(params[:id])
-    # @categories = Category.all
     @trips = Trip.all
     @trip = Trip.find(params[:trip_id])
    end
@@ -48,7 +45,7 @@ class TodosController < ApplicationController
     @todo = ToDo.find(params[:id])
 
     if @todo.done == true
-      then @todo.done =false
+      then @todo.done = false
     else @todo.done = true
     end
 
@@ -65,7 +62,7 @@ class TodosController < ApplicationController
 
   private
   def todo_params
-    params.require(:todo).permit(:details, :trip_id)
+    params.require(:todo).permit(:details, :trip_id, :date, :category_id)
   end
 
 end

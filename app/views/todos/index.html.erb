@@ -36,7 +36,7 @@
 		    <tr>
 		      <th scope="col"><%= sortable "details" %></th>
 		      <th colspan="2"></th>
-		      <th scope="col"><%= sortable "done"%></th>
+		      <th scope="col"><%= sortable "done" %></th>
 		    </tr>
 		  </thead>
 
@@ -48,9 +48,9 @@
 		      <td><%= link_to image_tag("icons/delete.png", class: "icons"), "/trips/#{@trip.id}/todos/#{todo.id}", method: :delete, data: { confirm: 'Are you sure?' } %>
 
 		      <% if todo.done %>
-		      <td><%= link_to image_tag("icons/todoCheck.png", class: "icons"), "/trips/#{@trip.id}/todos/#{todo.id}", method: :put, data: {confirm: 'Undone?'} %></td>
+		      	<td><%= link_to image_tag("icons/todoCheck.png", class: "icons"), "/trips/#{@trip.id}/todos/#{todo.id}", method: :put, data: {confirm: 'Undone?'} %></td>
 		      <% else %>
-		      <td><%= link_to image_tag("icons/notCheck.png", class: "icons"), "/trips/#{@trip.id}/todos/#{todo.id}", method: :put, data: {confirm: 'Done?'} %></td>
+		      	<td><%= link_to image_tag("icons/notCheck.png", class: "icons"), "/trips/#{@trip.id}/todos/#{todo.id}", method: :put, data: {confirm: 'Done?'} %></td>
 		      <% end %>
 
 
