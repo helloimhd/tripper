@@ -19,6 +19,27 @@
  @import "flights";
  @import "expenses";
 
+ @font-face {
+ 	font-family: 'Chelsea Market';
+	src: asset-url('fonts/ChelseaMarket-Regular.ttf') format('truetype');
+ }
+
+ @font-face {
+	font-family: 'PT Sans Narrow';
+	src: asset-url('fonts/PT_Sans-Narrow-Web-Regular.ttf') format('truetype');
+ }
+
+ @font-face {
+	font-family: 'Pompiere';
+	src: asset-url('fonts/Pompiere-Regular.ttf') format('truetype');
+ }
+
+ @font-face {
+	font-family: 'Smythe';
+	src: asset-url('fonts/Smythe-Regular.ttf') format('truetype');
+ }
+
+
  body {
  	//background-color: #F6FFF8;
 

@@ -1,0 +1,87 @@
+<h1>List</h1>
+	<div class="container">
+
+	<div class="iconHeader-container">
+		<% if @expenses.empty? %>
+			<div></div>
+		<% else %>
+			<%= link_to image_tag("icons/top-up.png", class: "icons-trips", title:"Add Expense"), new_expense_path %>
+		<% end %>
+
+		<div class="homeBye-container">
+			<%= link_to image_tag("icons/house.png", class: "icons-trips"), root_path %>
+			<%= link_to image_tag("icons/exit.png", class: "icons-trips", id: "exit"), destroy_user_session_url, method: :delete %>
+		</div>
+	</div>
+
+	<br />
+
+	<% if @expenses.empty? %>
+		<div class="addAlert">
+			<h2>Click <%= link_to image_tag("icons/top-up.png", class: "icons-trips", title:"Add Expense"), new_expense_path %> to add expenses!</h2>
+		</div>
+	<% else %>
+	<h4> Paid</h4>
+	<table class="table table-sm table-hover table-striped">
+	  <thead class="thead-dark">
+		<tr>
+		  <th scope="col">Details</th>
+		  <th scope="col">Amount</th>
+		  <th scope="col">Category</th>
+		  <th colspan="3"></th>
+		</tr>
+	  </thead>
+
+	  <tbody>
+		<% @expenses.each do |expense| %>
+			<%if expense.spent == true %>
+		  <tr>
+			<td scope="row" class="text-break"><%= expense.details %></td>
+			<td scope="row"><%= number_to_currency(expense.amount, precision:2) %></td>
+			<td scope="row"><%= expense.category.name %></td>
+			<td><%= link_to image_tag("icons/pencil.png", class: "icons", title:"Edit"), "/trips/#{@trip.id}/expenses/#{expense.id}/edit" %></td>
+			<td><%= link_to image_tag("icons/delete.png", class: "icons", title:"Delete"), expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		  </tr>
+		  <%else %>
+		  <p> </p>
+		  <% end %>
+		<% end %>
+	  </tbody>
+	</table>
+	<br>
+	<h4> Unpaid</h4>
+	<table class="table table-sm table-hover">
+	  <thead class="thead-dark">
+		<tr>
+		  <th scope="col">Details</th>
+		  <th scope="col">Amount</th>
+		  <th scope="col">Category</th>
+		  <th colspan="3"></th>
+		</tr>
+	  </thead>
+
+	  <tbody>
+		<% @expenses.each do |expense| %>
+			<%if expense.spent == false %>
+		  <tr>
+			<td scope="row" class="text-break"><%= expense.details %></td>
+			<td scope="row"><%= number_to_currency(expense.amount, precision:2) %></td>
+			<td scope="row"><%= expense.category.name %></td>
+			<td><%= link_to image_tag("icons/pencil.png", class: "icons", title:"Edit"), "/trips/#{@trip.id}/expenses/#{expense.id}/edit" %></td>
+			<td><%= link_to image_tag("icons/delete.png", class: "icons", title:"Delete"), expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			<td><%= link_to image_tag("icons/check.png", class: "icons", title:"Paid"), "/trips/#{@trip.id}/expenses/#{expense.id}", method: :put%></td>
+		  </tr>
+		  <%else %>
+		  <p> </p>
+		  <% end %>
+		<% end %>
+	  </tbody>
+	</table>
+	<% end %>
+
+	<br />
+
+	<footer>
+		<%= link_to image_tag("icons/back.png", class: "icons-trips", title:"Back"), expenses_path %>
+	</footer>
+</div>
