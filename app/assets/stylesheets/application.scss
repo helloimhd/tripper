@@ -30,6 +30,10 @@
 	 	border-bottom: 3px solid #EBE9E9;
 	 	padding-bottom: 15px;
 	 }
+
+	 footer {
+	 	margin-top: -5px;
+	 }
  }
 
 
@@ -123,6 +127,18 @@
 	margin-bottom: 10px;
 }
 
+#signUpButton {
+	font-size: 35px;
+	padding: 0 25px;
+	margin: 0 10px 10px 0;
+
+	a {
+		color: #EBE9E9;
+ 		font-family: 'Smythe', cursive;
+ 		font-size: 35px;
+	 	font-weight: 900;
+	}
+}
 #resetPassword {
 	font-family: 'PT Sans Narrow', sans-serif;
 	font-weight: 900;

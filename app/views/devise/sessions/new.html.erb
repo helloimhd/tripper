@@ -6,14 +6,14 @@
 
 	  <div class="form-group">
 	    <%= f.label :email %>
-	    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control form-control-lg"%>
+	    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control form-control-lg", required: true, placeholder: "Enter email address..." %>
 	  </div>
 
 	  <br />
 
 	  <div class="form-group">
 	    <%= f.label :password %><br />
-	    <%= f.password_field :password, autocomplete: "current-password", class: "form-control form-control-lg" %>
+	    <%= f.password_field :password, autocomplete: "current-password", class: "form-control form-control-lg", required: true, placeholder: "Enter password..." %>
 	  </div>
 
 	  <% if devise_mapping.rememberable? %>
@@ -23,7 +23,7 @@
 	    </div>
 	  <% end %>
 
-	  <button type="submit" class="buttons" id="deviseButton">Log In</button>
+	  <button type="submit" class="buttons float-right" id="deviseButton">Log In</button>
 
 
 	<% end %>

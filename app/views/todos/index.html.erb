@@ -12,40 +12,19 @@
 
   <input type="hidden" value="<%= @trip.id %>" name="todo[trip_id]"></input>
 
-  <div class="form-row">
-    <div class="col-6 col-lg-6">
-      <label>Trip</label>
-      <input class="form-control form-control-lg" value="<%= @trip.name %>" disabled/>
-    </div>
-  </div>
-
-  <br />
-
-  <div class="form-row">
-    <div class="col-6 col-lg-6">
-      <%= form.label :date %>
-      <%= form.date_field :date, min: @trip.start_date, max: @trip.end_date, class: "form-control form-control-lg" %>
-    </div>
-
-    <div class="col-6 col-lg-6">
-      <%= form.label :category %><br />
-      <%= form.collection_select :category_id, @categories, :id, :name,{prompt: "Category"}, {class: "form-control form-control-lg"} %>
-    </div>
-  </div>
-
-  <br />
 
   <div class="form-row">
     <div class="col-12">
-      <%= form.label :details%><br>
-      <%= form.text_field :details, class: "form-control form-control-lg"%>
+      <%= form.label :details %><br>
+      <%= form.text_field :details, class: "form-control form-control-lg", required: true, placeholder: "What do you want to do?", autocomplete: "off" %>
     </div>
   </div>
 
   <br />
 
-  <button type="submit" class="buttons">Confirm</button>
-  <br>
+  <button type="submit" class="buttons float-right">Add</button>
+  <br />
+  <br />
   <% end %>
   <br />
 
@@ -55,8 +34,6 @@
 		<table class="table table-sm table-hover table-striped">
 		  <thead class="thead-dark">
 		    <tr>
-		      <th scope="col"><%= sortable "date" %></th>
-		      <th scope="col"><%= sortable "category_id", "Category" %></th>
 		      <th scope="col"><%= sortable "details" %></th>
 		      <th colspan="2"></th>
 		      <th scope="col"><%= sortable "done"%></th>
@@ -66,16 +43,14 @@
 		  <tbody>
 		    <% @todos.each do |todo|%>
 		    <tr>
-		      <td scope="row"><%= todo.date.strftime("%d %b") %></th>
-		      <td><%= todo.category.name %></td>
 		      <td class="text-break"><%= todo.details%></td>
 		      <td><%= link_to image_tag("icons/pencil.png", class: "icons"), "/trips/#{@trip.id}/todos/#{todo.id}/edit" %></td>
 		      <td><%= link_to image_tag("icons/delete.png", class: "icons"), "/trips/#{@trip.id}/todos/#{todo.id}", method: :delete, data: { confirm: 'Are you sure?' } %>
 
 		      <% if todo.done %>
-		      <td><%= link_to image_tag("icons/todoCheck.png", class: "icons"), "/trips/#{@trip.id}/todos/#{todo.id}", method: :put, data: {confirm: 'Are you sure?'} %></td>
+		      <td><%= link_to image_tag("icons/todoCheck.png", class: "icons"), "/trips/#{@trip.id}/todos/#{todo.id}", method: :put, data: {confirm: 'Undone?'} %></td>
 		      <% else %>
-		      <td><%= link_to image_tag("icons/notCheck.png", class: "icons"), "/trips/#{@trip.id}/todos/#{todo.id}", method: :put, data: {confirm: 'Are you sure?'} %></td>
+		      <td><%= link_to image_tag("icons/notCheck.png", class: "icons"), "/trips/#{@trip.id}/todos/#{todo.id}", method: :put, data: {confirm: 'Done?'} %></td>
 		      <% end %>
 
 
@@ -85,7 +60,7 @@
 		  </tbody>
 		</table>
 	<% end %>
-	<br />
+
 	<footer>
 		<%= link_to image_tag("icons/back.png", class: "icons-trips", title:"Back"), @trip %>
 	</footer>

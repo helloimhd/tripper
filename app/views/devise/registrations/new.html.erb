@@ -7,7 +7,7 @@
 
 		<div class="form-group">
 			<%= f.label :email %>
-	  	<%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control form-control-lg" %>
+	  	<%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control form-control-lg", required: true, placeholder: "Enter email address..." %>
 		</div>
 
 		<br />
@@ -17,7 +17,7 @@
 	    <% if @minimum_password_length %>
 	    <em>(<%= @minimum_password_length %> characters minimum)</em>
 	    <% end %>
-	    <%= f.password_field :password, autocomplete: "new-password", class: "form-control form-control-lg" %>
+	    <%= f.password_field :password, autocomplete: "new-password", class: "form-control form-control-lg", required: true, placeholder: "Enter password..." %>
 		</div>
 
 		<br />
@@ -27,7 +27,7 @@
 			<%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control form-control-lg" %>
 		</div>
 
-		<button type="submit" class="buttons" id="deviseButton">Sign Up</button>
+		<button type="submit" class="buttons float-right" id="deviseButton">Sign Up</button>
 
 		<br>
 

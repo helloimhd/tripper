@@ -88,17 +88,34 @@ class FlightsController < ApplicationController
     @contacts = []
 
     @flights.each_with_index do |flight, index|
+
+      # get isoCode
       @from = Airports.find_by_iata_code(flight.from).country
       isoCodeFrom = ISO3166::Country.find_country_by_name(@from)
 
       @to = Airports.find_by_iata_code(flight.to).country
       isoCodeTo = ISO3166::Country.find_country_by_name(@to)
 
-      fromData = open('http://emergencynumberapi.com/api/country/' + isoCodeFrom.number).read
-      @emergencyFromData = JSON.parse(fromData)
+      # get contact details by the isoCode
+      begin
+        fromData = open('http://emergencynumberapi.com/api/country/' + isoCodeFrom.number).read
+        @emergencyFromData = JSON.parse(fromData)
+      rescue OpenURI::HTTPError => error
+        response = error.io
+        @emergencyFromData = response.string
+      end
 
-      toData = open('http://emergencynumberapi.com/api/country/' + isoCodeTo.number).read
-      @emergencyToData = JSON.parse(toData)
+      begin
+        toData = open('http://emergencynumberapi.com/api/country/' + isoCodeTo.number).read
+        @emergencyToData = JSON.parse(toData)
+      rescue OpenURI::HTTPError => error
+        response = error.io
+        @emergencyToData = response.string
+      end
+
+      # puts @emergencyToData
+      # puts @emergencyToData["error"]
+
 
       # put inside the hash
       @indvContact = {}
@@ -106,22 +123,39 @@ class FlightsController < ApplicationController
       # put from-destination detailss
       @indvContact[:from] = @from
       @indvContact[:iataCode_from] = flight.from
-      @indvContact[:ambulance_from] = @emergencyFromData["data"]["ambulance"]["all"][0]
-      @indvContact[:fire_from] = @emergencyFromData["data"]["fire"]["all"][0]
-      @indvContact[:police_from] = @emergencyFromData["data"]["police"]["all"][0]
-      @indvContact[:dispatch_from] = @emergencyFromData["data"]["dispatch"]["all"][0]
+
+      # puts @emergencyFromData["error"]
+      if @emergencyFromData["error"] != "error"
+        @indvContact[:ambulance_from] = @emergencyFromData["data"]["ambulance"]["all"][0]
+        @indvContact[:fire_from] = @emergencyFromData["data"]["fire"]["all"][0]
+        @indvContact[:police_from] = @emergencyFromData["data"]["police"]["all"][0]
+        @indvContact[:dispatch_from] = @emergencyFromData["data"]["dispatch"]["all"][0]
+      else
+        @indvContact[:ambulance_from] = ""
+        @indvContact[:fire_from] = ""
+        @indvContact[:police_from] = ""
+        @indvContact[:dispatch_from] = ""
+      end    # end of if statement to check null data for from
 
       # put to-destination details
       @indvContact[:to] = @to
       @indvContact[:iataCode_to] = flight.to
-      @indvContact[:ambulance_to] = @emergencyToData["data"]["ambulance"]["all"][0]
-      @indvContact[:fire_to] = @emergencyToData["data"]["fire"]["all"][0]
-      @indvContact[:police_to] = @emergencyToData["data"]["police"]["all"][0]
-      @indvContact[:dispatch_to] = @emergencyToData["data"]["dispatch"]["all"][0]
+
+      if @emergencyToData["error"] != "error"
+        @indvContact[:ambulance_to] = @emergencyToData["data"]["ambulance"]["all"][0]
+        @indvContact[:fire_to] = @emergencyToData["data"]["fire"]["all"][0]
+        @indvContact[:police_to] = @emergencyToData["data"]["police"]["all"][0]
+        @indvContact[:dispatch_to] = @emergencyToData["data"]["dispatch"]["all"][0]
+      else
+        @indvContact[:ambulance_to] = ""
+        @indvContact[:fire_to] = ""
+        @indvContact[:police_to] = ""
+        @indvContact[:dispatch_to] = ""
+      end   # end of if statement to check null data for to
 
       # push in array
       @contacts.push(@indvContact)
-    end
+    end   # end of flight with each index
   end
 
   private

@@ -5,7 +5,7 @@ module ExpensesHelper
           {name:"Paid",data: {"Spend":@paid}, stack:"Spend"},
           {name:"Unpaid",data: {"Spend":@unpaid}, stack: "Spend"},
           {name:"Budget", data: {"Spend":@budget}},
-          {name:"Sav(Ovr)", data: {"Spend":(@budget-@spend)}, stack:"Spend"}
+          {name:"Variance", data: {"Spend":(@budget-@spend)}, stack:"Spend"}
         ]
   end
 
