@@ -1,3 +1,4 @@
+<div class="phoneTemplate">
 <h1>New Expense</h1>
 
 <div class="container">
@@ -25,12 +26,12 @@
 	<br />
 
 	<div class="form-row">
-		<div class="col-9 col-lg-6">
+		<div class="col-9 col-lg-9">
 			<label>Expenses Details</label>
 			<%= form.text_field :details, class: "form-control form-control-lg", placeholder: "Toiletries" %>
 		</div>
 
-		<div class="col-3 col-lg-6">
+		<div class="col-3 col-lg-3">
 			<label>Amount</label>
 			<%= form.number_field :amount, class: "form-control form-control-lg", placeholder: "$" %>
 		</div>
@@ -39,19 +40,19 @@
 	<br />
 
 	<div class="form-row">
-		<div class="col-9 col-lg-6">
+		<div class="col-8 col-lg-8">
 			<label>Category</label>
 			<%= form.collection_select :category_id, @categories, :id, :name,{prompt: "Select category"}, {class: "form-control form-control-lg", id: "selectInput"} %>
 		</div>
 
 
-			<div class="col-3 col-lg-6">
+			<div class="col-3 col-lg-3">
 				<label></label>
 				<%= form.check_box :spent, :data => { :toggle => 'toggle', :on => "Paid", :off => "Not Paid", :onstyle => "success", :offstyle => "danger" } %>
 			</div>
-
 	</div>
 
+	<br />
 	<br />
 
 	<button type="submit" class="buttons float-right">Confirm</button>
@@ -60,4 +61,5 @@
 	<footer>
 			<%= link_to image_tag("icons/back.png", class: "icons-trips"), expenses_path %>
 		</footer>
+</div>
 </div>

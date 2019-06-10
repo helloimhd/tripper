@@ -1,77 +1,80 @@
-<h1><%= @trip.name %></h1>
+<div class="phoneTemplate">
+	<h1><%= @trip.name %></h1>
 
-<div class="container">
-	<div class="iconHeader-container">
-		<div></div>
-		<div class="homeBye-container">
-			<%= link_to image_tag("icons/house.png", class: "icons-trips"), root_path %>
-			<%= link_to image_tag("icons/exit.png", class: "icons-trips", id: "exit"), destroy_user_session_url, method: :delete %>
+	<div class="container">
+		<div class="iconHeader-container">
+			<div></div>
+			<div class="homeBye-container">
+				<%= link_to image_tag("icons/house.png", class: "icons-trips"), root_path %>
+				<%= link_to image_tag("icons/exit.png", class: "icons-trips", id: "exit"), destroy_user_session_url, method: :delete %>
+			</div>
+		</div>
+
+		<br />
+
+		<div class="tripDetails-container">
+
+			<div class="tripDuration-container">
+				<h2>Start</h2>
+				<div class="tripDate-container">
+					<div class="dayMonth-container">
+						<h4><%= @trip.start_date.strftime("%A") %><h4>
+						<h4><%= @trip.start_date.strftime("%B") %></h4>
+					</div>
+
+					<div class="number-container">
+						<h2><%= @trip.start_date.strftime("%d") %></h2>
+					</div>
+				</div>
+			</div>
+
+			<div class="tripDuration-container">
+				<h2>End</h2>
+				<div class="tripDate-container">
+					<div class="dayMonth-container">
+						<h4><%= @trip.end_date.strftime("%A") %></h4>
+						<h4><%= @trip.end_date.strftime("%B") %></h4>
+					</div>
+
+					<div class="number-container">
+						<h2><%= @trip.end_date.strftime("%d") %><h2>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+
+
+			<div class="optionMain-container">
+				<div class="option-container">
+					<div class="optionText">
+						<%= link_to image_tag("icons/plane.png", class: "icons-trips"), "/trips/#{@trip.id}/flights" %>
+					</div>
+				</div>
+
+				<div class="option-container">
+					<div class="optionText">
+						<%= link_to image_tag("icons/to-do-list.png", class: "icons-trips"), "/trips/#{@trip.id}/todos" %>
+					</div>
+				</div>
+
+				<div class="option-container">
+					<div class="optionText">
+						<%= link_to image_tag("icons/roi.png", class: "icons-trips"), "/trips/#{@trip.id}/expenses" %>
+					</div>
+				</div>
+
+				<div class="option-container">
+					<div class="optionText">
+						<%= link_to image_tag("icons/sos.png", class: "icons-trips"), "/trips/#{@trip.id}/emergency" %>
+					</div>
+				</div>
+			</div>
+
+			<footer>
+				<%= link_to image_tag("icons/back.png", class: "icons-trips"), trips_path %>
+			</footer>
 		</div>
 	</div>
-
-	<br />
-
-	<div class="tripDetails-container">
-
-		<div class="tripDuration-container">
-			<h2>Start</h2>
-			<div class="tripDate-container">
-				<div class="dayMonth-container">
-					<h4><%= @trip.start_date.strftime("%A") %><h4>
-					<h4><%= @trip.start_date.strftime("%B") %></h4>
-				</div>
-
-				<div class="number-container">
-					<h2><%= @trip.start_date.strftime("%d") %></h2>
-				</div>
-			</div>
-		</div>
-
-		<div class="tripDuration-container">
-			<h2>End</h2>
-			<div class="tripDate-container">
-				<div class="dayMonth-container">
-					<h4><%= @trip.end_date.strftime("%A") %></h4>
-					<h4><%= @trip.end_date.strftime("%B") %></h4>
-				</div>
-
-				<div class="number-container">
-					<h2><%= @trip.end_date.strftime("%d") %><h2>
-				</div>
-			</div>
-		</div>
-
-	</div>
-
-
-
-		<div class="optionMain-container">
-			<div class="option-container">
-				<div class="optionText">
-					<%= link_to image_tag("icons/plane.png", class: "icons-trips"), "/trips/#{@trip.id}/flights" %>
-				</div>
-			</div>
-
-			<div class="option-container">
-				<div class="optionText">
-					<%= link_to image_tag("icons/to-do-list.png", class: "icons-trips"), "/trips/#{@trip.id}/todos" %>
-				</div>
-			</div>
-
-			<div class="option-container">
-				<div class="optionText">
-					<%= link_to image_tag("icons/roi.png", class: "icons-trips"), "/trips/#{@trip.id}/expenses" %>
-				</div>
-			</div>
-
-			<div class="option-container">
-				<div class="optionText">
-					<%= link_to image_tag("icons/sos.png", class: "icons-trips"), "/trips/#{@trip.id}/emergency" %>
-				</div>
-			</div>
-		</div>
-
-		<footer>
-			<%= link_to image_tag("icons/back.png", class: "icons-trips"), trips_path %>
-		</footer>
-	</div>
+</div>

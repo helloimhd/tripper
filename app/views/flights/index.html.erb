@@ -1,3 +1,4 @@
+<div class="phoneTemplate">
 <h1>Flights</h1>
 
 <div class="container">
@@ -44,7 +45,7 @@
 						<%= link_to image_tag("icons/pencil.png", class: "icons"), "/trips/#{@trip.id}/flights/#{flight.id}/edit" %>
 						<%= link_to image_tag("icons/delete.png", class: "icons"), "/trips/#{@trip.id}/flights/#{flight.id}",
 				        method: :delete,
-				        data: { confirm: 'Are you sure?' } %>
+				        data: { confirm: 'Delete flight?' } %>
 					</div>
 				</div>
 
@@ -103,4 +104,5 @@
 		<%= link_to image_tag("icons/back.png", class: "icons-trips"), @trip %>
 	</footer>
 
+</div>
 </div>

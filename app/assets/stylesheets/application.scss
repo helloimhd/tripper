@@ -39,6 +39,13 @@
 	src: asset-url('fonts/Smythe-Regular.ttf') format('truetype');
  }
 
+.phoneTemplate {
+	width: 414px;
+	min-height: 736px;
+	margin: auto;
+	border: 2px solid black;
+	border-radius: 5px;
+}
 
  body {
  	//background-color: #F6FFF8;
@@ -178,7 +185,7 @@ h3 {
 }
  @media only screen and (max-width: 600px) {
   h1 {
-    // color: blue;
+    //color: blue;
   }
 
 }
