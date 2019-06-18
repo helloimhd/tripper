@@ -1,25 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Manage your trips with this application!
+Keep track of your flights, to-do list, expenses and auto-generated emergency number!
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# tripper
+Try it here:
+https://trip-per.herokuapp.com/
